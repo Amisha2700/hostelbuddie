@@ -27,5 +27,4 @@ function addPost() {
             <h4>${itemName}</h4>
             <p>${itemDescription}</p>
         </div>
-        <button onclick="markAsFound(${postId})">Mark as Found</button>
     `);
