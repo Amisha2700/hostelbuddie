@@ -47,7 +47,7 @@ export const login=async(req,resp)=>{
         const userObject = currentUser.toObject(); // we need to convert this to plain object
         delete userObject.password;
 
-        //delete currentUser.password;//so as not to pass this with the token //this doesn't work
+        //delete currentUser.password;//this doesn't work
 
         resp.json({generateToken,userObject});
     }
