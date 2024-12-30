@@ -18,7 +18,7 @@ function addPost() {
     if (!itemName || !itemDescription) {
         alert("Please fill out both fields");
         return;
-    }}
+    }
 
     const postId = Date.now(); // Unique ID for the post which is based on time in milliseconds 
 
@@ -28,3 +28,5 @@ function addPost() {
             <p>${itemDescription}</p>
         </div>
     `);
+    posts.appendChild(postElement)
+    }
