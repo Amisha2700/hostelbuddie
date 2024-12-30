@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config(); 
 
 const key=process.env.JWT_SECRET;
+const collegeDomain="@pec.edu.in";
 
 //REGISTER
 export const register=async (req,resp)=>{
@@ -15,6 +16,9 @@ export const register=async (req,resp)=>{
             sid,
             emailid,
             password,}=req.body;
+        if (!emailid.endsWith(collegeDomain)) {
+            return resp.status(400).json({message:"Please use your college email address to sign up!"});
+        }
         const salt=await bcrypt.genSalt();
         const passwordF=await bcrypt.hash(password, salt);
         const newUser=new user({
