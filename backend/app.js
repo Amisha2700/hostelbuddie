@@ -10,10 +10,12 @@ const PORT=process.env.PORT||3000;
 app.use(express.json());
 
 import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/users.js";
 import {verify} from "./middlewares/auth.js";
 
 
 app.use("/auth",authRoutes);
+app.use("/users",userRoutes)
 
 //app.get("/protected",verify,(req,resp)=>{  //working fine(verification waala)
    // resp.json({message:req.user})

@@ -7,13 +7,8 @@ const schema=new mongoose.Schema({
     username:{
         type:String,
         required:true},
-    location:String,
     picturepath:String,
     caption:String,
-    likes:{
-        type:Map,
-        of:Boolean,
-    },
     comments:[{
         userid:{
             type:String,
