@@ -1,3 +1,3 @@
 * text=auto eol=lf
 
-*.json text eol=lf
+*.json text eol=lf //to handle lf to crlf warning 
