@@ -11,15 +11,26 @@ app.use(express.json());
 
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
+
 import {verify} from "./middlewares/auth.js";
+import { uploadFile } from "./middlewares/upload.js"; 
 
 
 app.use("/auth",authRoutes);
 app.use("/users",userRoutes)
 
-//app.get("/protected",verify,(req,resp)=>{  //working fine(verification waala)
-   // resp.json({message:req.user})
-//});
+// app.get("/protected",verify,(req,resp)=>{  //working fine(verification waala)
+//     resp.json({message:req.user})
+// });
+
+// app.post("/upload",uploadFile,(req,resp)=>{ //uploading files- working fine
+//     try{
+//         resp.status(200).json({message:"File uploaded successfully!"});
+//     }
+//     catch(error){
+//         resp.status(500).json({error:error.message});
+//     }
+// })
 
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
