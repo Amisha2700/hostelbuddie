@@ -7,7 +7,7 @@ export const verify = async (req, resp, next) => {
         }
         else {
             const bearer = bearerHeader.split(" ");
-            const token = bearer[1];
+            const token = bearer[1];//the token is the second object after splitting
             const ifVerified=jwt.verify(token,process.env.JWT_SECRET);
             req.user=ifVerified;
             next();

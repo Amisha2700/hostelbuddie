@@ -19,7 +19,7 @@ const schema=new mongoose.Schema({
         required:true,
     },
     },
-    {timestamps:true}
+    {timestamps:true}//to add "created" and "updated" automatically 
 );
 
 const usermodel=mongoose.model("users",schema);
