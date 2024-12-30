@@ -1,7 +1,7 @@
 const posts = document.getElementById("posts");
 
 // Function to create and return a new DOM element with given attributes and content
-function createElement(tag, attributes = {}) {
+function createElement(tag, attributes = {}, string_msg="") {
     const element = document.createElement(tag);
 
     for (let key in attributes) {
@@ -30,3 +30,9 @@ function addPost() {
     `);
     posts.appendChild(postElement)
     }
+
+// Create the "Mark Found" button
+const markFoundButton = createElement("button", {}, "Mark Found");
+
+
+
