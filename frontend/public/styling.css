@@ -1,0 +1,13 @@
+
+.navbar {
+    background-color: #ff8fab !important;
+    margin: 10px;
+}
+
+body{
+    background-color: beige;
+}
+
+.actionbtn{
+    background-image: linear-gradient(#ff8fab,magenta);
+}
