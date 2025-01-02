@@ -21,8 +21,18 @@
             text-align: center;
             color: white;
         }
+        .nav {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #d45079;
+            font-weight: bold;
+        }
         .content {
-            flex: 1; /* Takes up the remaining space */
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -80,6 +90,12 @@
 <header class="header">
     <h1>Lost Item Portal</h1>
 </header>
+
+<nav class="nav">
+    <button onclick="location.href='sell.html'">Sell an Item</button>
+    <button onclick="location.href='manage_sell.html'">Manage Your Items</button>
+</nav>
+
 <section class="content">
     <div class="form-container">
         <form action="" method="POST">
@@ -106,7 +122,6 @@
         </form>
     </div>
 </section>
-
 
 </body>
 </html>
