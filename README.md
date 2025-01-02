@@ -5,7 +5,7 @@ The project aims to provide features such as roommate finder using machine learn
 
 ## Features
 
-1. **Roommate Matching Framework**: This feature is especially useful for first-year students, as they often struggle to find compatible roommates initially. Through a form, students can select their traits,interests and  preferences. Machine learning algorithms, including cosine similarity, will be used to match students with individuals of similar personalities or interests.
+1. **Roommate Matching Framework**: This feature is especially useful for first-year students, as they often struggle to find compatible roommates initially. Through a form, students can select their traits,interests and  preferences. Machine learning algorithms will be used to match students with individuals of similar personalities or interests.
 
 2. **Lost-and-Found Portal**: If someone loses an item, they can post about it here. This feature will bridge the gap in communication across different years and branches, ensuring important information reaches everyone effectively.
 
@@ -14,9 +14,9 @@ The project aims to provide features such as roommate finder using machine learn
 ## Tech Stack Used (till now):
 
 - **Frontend**: 
-  - React
-  - React Router
-  - Axios
+  - HTML
+  - CSS
+  
 
 - **Backend**:
   - Express.js
