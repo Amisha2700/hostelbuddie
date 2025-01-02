@@ -21,6 +21,24 @@
             text-align: center;
             color: white;
         }
+        .nav {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .nav button {
+            margin: 0 15px;
+            background-color: #d45079;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .nav button:hover {
+            background-color: #8e6d74;
+        }
         .content {
             flex: 1; /* Takes up the remaining space */
             display: flex;
@@ -81,6 +99,11 @@
     <h1>Lost Item Portal</h1>
 </header>
 
+<nav class="nav">
+    <button onclick="location.href='lost.html'">Report a Lost Item</button>
+    <button onclick="location.href='manage_lost.html'">Manage Lost Items</button>
+</nav>
+
 <section class="content">
     <div class="form-container">
         <form action="" method="POST">
@@ -103,15 +126,4 @@
             </div>
             <div class="form-group">
                 <label for="itemImage">Upload Item Image</label>
-                <h5>Note : Only photos of size less than 20MB will be accepted.</h6>
-                <input type="file" id="itemImage" name="itemImage" accept="image/*" required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Submit Report</button>
-            </div>
-        </form>
-    </div>
-</section>
-
-</body>
-</html>
+                <h5>Note: Only photos of size less than
