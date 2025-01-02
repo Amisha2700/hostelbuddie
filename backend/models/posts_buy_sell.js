@@ -15,13 +15,30 @@ const itemSchema = new mongoose.Schema(
     price: {
       type: Number,
       required: true,
+      min: 0, // Ensures price is non-negative
     },
     
     contactInformation: {
       type: String,
       required: true,
     },
-  },
+
+    comments:[{
+      userid:{
+          type:String,
+          required:true,
+      },
+      username:{
+          type:String,
+          required:true,
+      },
+      comment:{
+          type:String,
+          required:true
+      }
+  }]
+
+},
 
   { timestamps: true } 
   //To add created at and updated at fields
