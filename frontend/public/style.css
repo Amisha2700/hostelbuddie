@@ -82,6 +82,42 @@ margin:2% 20% 2% 20%;
   padding: 7% 15% ;
   text-align: center;
 }
+.motion-bar {
+  background-color: #cc93c0;
+  border: #ca0f89;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 2px solid #343a40;
+}
+
+.motion-bar a {
+  color: #343a40;
+  font-weight: bold;
+  margin: 0 20px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.motion-bar a:hover {
+  text-decoration: underline;
+}
+
+.motion-bar .content {
+  display: inline-block;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+      transform: translateX(100%);
+  }
+
+  100% {
+      transform: translateX(-100%);
+  }
+}
 @media(max-width:1214px) and  (min-width : 1000px){
   .image_phone{
     transform: rotate(0);
