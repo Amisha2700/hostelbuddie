@@ -33,7 +33,7 @@ The project aims to provide features such as roommate finder using machine learn
   - dotenv
   - bcrypt
   - jsonwebtoken
-  - multer
+  
 
 - **Machine Learning**:
   - Cosine Similarity for roommate matchmaking
