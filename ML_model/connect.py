@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request,render_template 
 from flask_pymongo import PyMongo
 from dotenv import load_dotenv
 import os
@@ -40,7 +40,19 @@ def add(data):
     else:
         print("No data found.")
 
-if __name__ == '__main__':
-    data = fetchData()
-    add(data)
+# if __name__ == '__main__':
+#     data = fetchData()
+#     add(data)
 
+@app.route('/')
+def index():
+    return render_template("index.html")
+
+@app.route('/update', methods=['POST'])
+def update():
+    data = fetchData()
+    result = add(data)
+    return jsonify({"message": result})
+
+#if(__name__=="__main__"):
+    app.run(debug=True,port=8000)
