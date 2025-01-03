@@ -15,10 +15,10 @@
   height: auto;
 }
 .carousel-inner img {
-  width: auto; /* Change width to auto */
-  height: 300px; /* Set a fixed height */
+  width: auto; 
+  height: 300px; 
   object-fit: cover;
-  max-width: 100%; /* Ensure the image doesn't exceed its container */
+  max-width: 100%; 
 }
 
 #about{
@@ -151,21 +151,21 @@ margin:2% 20% 2% 20%;
   }
 
   .navbar {
-    padding: 0.5rem 1rem; /* Reduce overall padding for a compact navbar */
-    height: 120px; /* Set a fixed height for the navbar */
+    padding: 0.5rem 1rem;
+    height: 120px; 
     display: flex;
-    align-items: center; /* Align contents vertically */
-    justify-content: space-between; /* Space out logo and navigation items */
+    align-items: center; 
+    justify-content: space-between; 
   }
   
   .navbar-brand {
     display: flex;
-    align-items: center; /* Center the logo vertically */
+    align-items: center; 
   }
   
   .navbar-brand img {
-    height: 100px; /* Set the logo's height to match the desired ratio */
-    width: auto; /* Maintain aspect ratio */
+    height: 100px; 
+    width: auto; 
   }
 
 .navbar-nav {
@@ -179,7 +179,7 @@ margin:2% 20% 2% 20%;
 }
 
 .nav-item {
-    margin: 0 15px; /* Spacing between items */
+    margin: 0 15px; 
     list-style: none;
 }
 
@@ -190,28 +190,28 @@ margin:2% 20% 2% 20%;
     text-decoration: none;
     padding: 8px 12px;
     border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+    transition: background-color 0.3s, color 0.3s; 
 }
 
 .nav-link:hover {
     background-color: hsl(305, 21%, 70%);
-    color: #fff; /* Light text on hover */
+    color: #fff; 
 }
 
 
   
   .nav-item {
-    padding-right: 15px; /* Adjust spacing between navigation items */
+    padding-right: 15px; 
   }
   
   .nav-link {
-    font-size: 1.2rem; /* Adjust font size for proportionality */
+    font-size: 1.2rem; 
     font-family: 'Montserrat-light';
-    padding: 0 10px; /* Add padding for better click targets */
+    padding: 0 10px; 
   }
   
   .navbar-toggler {
-    margin-right: 1rem; /* Ensure the toggle button is properly spaced */
+    margin-right: 1rem; 
   }
   
   
