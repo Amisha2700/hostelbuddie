@@ -23,6 +23,7 @@ The project aims to provide features such as roommate finder using machine learn
   - Express.js
   - Node.js
   - MongoDB
+  - Cloudinary database
 
 - **Libraries Used**:
   - react
