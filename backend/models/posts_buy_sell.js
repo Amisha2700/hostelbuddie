@@ -2,6 +2,14 @@ import mongoose from "mongoose";
 
 const itemSchema = new mongoose.Schema(
   {
+    userid:{
+      type:String,
+      required:true},
+
+    username:{
+      type:String,
+      required:true},
+      
     itemName: {
       type: String,
       required: true,
@@ -15,14 +23,24 @@ const itemSchema = new mongoose.Schema(
     price: {
       type: Number,
       required: true,
-      min: 0, // Ensures price is non-negative
+      min: 0, //Ensures price is non-negative
     },
     
     contactInformation: {
       type: String,
       required: true,
-    },
 
+      validate: {
+      validator: function (value) {
+        // Example: Check if it's a valid email or phone number
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^\+?[1-9]\d{1,14}$/; 
+        return emailRegex.test(value) || phoneRegex.test(value);
+      },
+      message: 'Enter valid email or phone number',
+    },
+  },
+  
     comments:[{
       userid:{
           type:String,

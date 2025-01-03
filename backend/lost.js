@@ -63,25 +63,29 @@ function addPost() {
     postElement.appendChild(markFoundButton);
     posts.appendChild(postElement);
 
-   //comment section
-   const commentSection = createElement("div", { class: "comment-section" });
+//comment section
+const commentSection = createElement("div", { class: "comment-section" });
 
-    const commentInput = createElement("input", {
-        type: "text",
-        placeholder: "Add a comment",
-        class: "comment-input",
-        id: `comment-input-${postId}`
+const commentInput = createElement("input", {
+    type: "text",
+    placeholder: "Add a comment",
+    class: "comment-input",
+    id: `comment-input-${postId}`
+});
+
+    const commentButton = createElement("button", {}, "Add Comment");
+    commentButton.addEventListener("click", () => {
+        const comment = commentInput.value.trim();
+        if (!comment) {
+            console.error("Comment cannot be empty!");
+            return;
+        }
+        const commentItem = createElement("p", {}, comment);
+        commentSection.appendChild(commentItem);
+        commentInput.value = "";
     });
-    if (!commentInput.value) {
-        alert("Comment cannot be empty!");
-        return;
 
-    const commentButton = createElement("button", {
-        onclick: `addComment(${postId})`
-    }, "Add Comment");
-    
-}
-    console.log(`Post added: ${itemName}`);
+console.log(`Post added: ${itemName}`);
 }
 
 // Dummy data for server response
