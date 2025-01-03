@@ -11,7 +11,7 @@ app.use(express.json());
 
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
-import postRoutes from "./routes/posts.js";
+import postRoutes from "./routes/posts_lost_found.js";
 
 import {verify} from "./middlewares/auth.js";
 import { uploadFile } from "./middlewares/upload.js"; 

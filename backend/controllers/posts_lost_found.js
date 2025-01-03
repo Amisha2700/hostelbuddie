@@ -1,4 +1,4 @@
-import posts from "../models/posts.js";
+import posts from "../models/posts_lost_found.js";
 import users from "../models/users.js";
 
 //CREATE POST

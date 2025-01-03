@@ -1,5 +1,5 @@
 import express from "express";
-import { makePost,readFeed,readSpecific,update,deletePost } from "../controllers/posts.js";
+import { makePost,readFeed,readSpecific,update,deletePost } from "../controllers/posts_lost_found.js";
 import { verify } from "../middlewares/auth.js";
 import { uploadFile } from "../middlewares/upload.js";
 import { cloudinaryFile } from '../middlewares/cloudinary.js';
