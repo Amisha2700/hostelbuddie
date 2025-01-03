@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Database</title>
+  
+</head>
+<body>
+    <h1>Update Form Responses</h1>
+    <button onclick="updateDatabase()">Update Database</button>
+
+  
+  <!--Js LINK-->
+
+    <script>
+        function updateDatabase() {
+            fetch('/update', {
+                method: 'POST',
+            })
+            .then(response => response.json())
+            .then(data => alert(data.message))
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
