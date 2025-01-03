@@ -5,17 +5,20 @@ import users from "../models/users.js";
 export const makePost=async(req,resp)=>{
     try{
         const {username,sid, picturepath,caption}=req.body;
+        const pictureUrl = picturepath; //the cloudinary url of the image uploaded
         const user=await users.findOne({sid:sid});
         if(!user){
             return resp.status(404).json({message:"User not found!"});
         }
+
         const newpost=new posts({
             userid:user._id,
             username,
-            picturepath,
+            picturepath:pictureUrl, //cloudinary url saved to post
             caption,
             comments:[]
         });
+        //post saved to mongodb
         await newpost.save();
         return resp.status(201).json(newpost);
     }

@@ -15,6 +15,7 @@ import postRoutes from "./routes/posts.js";
 
 import {verify} from "./middlewares/auth.js";
 import { uploadFile } from "./middlewares/upload.js"; 
+import { cloudinaryFile } from "./middlewares/cloudinary.js";
 
 
 app.use("/auth",authRoutes);
@@ -34,6 +35,15 @@ app.use("/posts",postRoutes);
 //     }
 // })
 
+// app.post("/cloudUpload",cloudinaryFile,(req,res)=>{ //uploading files- to check
+//     try{
+//         return res.status(200).json({message:"File uploaded successfully!"});
+//     }
+//     catch(error){
+//         return res.status(500).json({error:error.message});
+//     }
+// })
+
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
     console.log("Database Connected successfully!");
@@ -43,4 +53,3 @@ mongoose.connect(process.env.MONGO_URL)
     console.error("Database connection failed ",error.message);
     process.exit(1);//exit if the database is not connected
 });
-
