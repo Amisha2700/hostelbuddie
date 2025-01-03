@@ -16,6 +16,7 @@ The project aims to provide features such as roommate finder using machine learn
 - **Frontend**: 
   - HTML
   - CSS
+  - Bootstrap(framework)
   
 
 - **Backend**:
@@ -37,6 +38,7 @@ The project aims to provide features such as roommate finder using machine learn
 
 - **Machine Learning**:
   - Cosine Similarity for roommate matchmaking
+  - Flask (Python)
 
 - **Testing**:
   - Postman for API testing
