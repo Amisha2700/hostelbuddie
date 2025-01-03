@@ -16,6 +16,7 @@ The project aims to provide features such as roommate finder using machine learn
 - **Frontend**: 
   - HTML
   - CSS
+  - Bootstrap(framework)
   
 
 - **Backend**:
