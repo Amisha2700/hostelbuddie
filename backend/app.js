@@ -15,7 +15,7 @@ import postRoutes from "./routes/posts_lost_found.js";
 
 import {verify} from "./middlewares/auth.js";
 import { uploadFile } from "./middlewares/upload.js"; 
-import { cloudinaryFile } from "./middlewares/cloudinary.js";
+import { cloudinaryFile,upload } from "./middlewares/cloudinary.js";
 
 
 app.use("/auth",authRoutes);
@@ -35,14 +35,14 @@ app.use("/posts",postRoutes);
 //     }
 // })
 
-// app.post("/cloudUpload",cloudinaryFile,(req,res)=>{ //uploading files- to check
-//     try{
-//         return res.status(200).json({message:"File uploaded successfully!"});
-//     }
-//     catch(error){
-//         return res.status(500).json({error:error.message});
-//     }
-// })
+app.post("/cloudUpload",upload.single("file"),cloudinaryFile,(req,res)=>{ //uploading files- to check
+    try{
+        return res.status(200).json({message:"File uploaded successfully!"});
+    }
+    catch(error){
+        return res.status(500).json({error:error.message});
+    }
+})
 
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{

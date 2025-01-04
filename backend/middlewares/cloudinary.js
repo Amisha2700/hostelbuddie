@@ -1,4 +1,8 @@
 import cloudinary from "../config/cloudinary.js";
+import multer from "multer"
+import fs from "fs"
+
+export const upload=multer({dest:"uploaded"})
 
 export const cloudinaryFile = async (req, res, next) => {
   try {
@@ -13,6 +17,10 @@ export const cloudinaryFile = async (req, res, next) => {
 
     req.body.picturepath = result.secure_url;
 
+    fs.unlink(req.file.path, (err) => {
+      if (err) console.error("Failed to delete local file:", err);
+    });
+
     next();
   } 
   catch (error) {
@@ -20,3 +28,4 @@ export const cloudinaryFile = async (req, res, next) => {
     res.status(500).json({ message: 'Image upload failed', error });
   }
 };
+
