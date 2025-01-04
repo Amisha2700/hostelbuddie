@@ -30,6 +30,7 @@ The project aims to provide features such as roommate finder using machine learn
   - react-router-dom
   - axios
   - express
+  - multer
   - mongoose
   - cors
   - dotenv
