@@ -2,9 +2,17 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import multer from "multer";
+import cors from 'cors';
+
+const app=express();
+app.use(cors({
+  origin: 'http://localhost:5173', // Allow your frontend's URL
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'], // If you're sending Authorization headers
+}));
 
 dotenv.config();//to load the environment variables
-const app=express();
+
 const PORT=process.env.PORT||3000;
 
 app.use(express.json());
