@@ -55,9 +55,9 @@ The project aims to provide features such as roommate finder using machine learn
 
 ## Contributors
 
--**Amisha Gupta**
--**Himanshi Garg**
--**Mihira Gupta**
+-**Amisha Gupta**<br>
+-**Himanshi Garg**<br>
+-**Mihira Gupta**<br>
 -**Ananyaa Priyadarshini**
 
 
