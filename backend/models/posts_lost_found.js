@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 const schema=new mongoose.Schema({
-    userid:{
-        type:String,
+    sid:{
+        type:Number,
         required:true},
 
     username:{
@@ -10,8 +10,6 @@ const schema=new mongoose.Schema({
         required:true},
 
     picturepath:String,
-
-    caption:String,
 
     itemName: {
         type: String,

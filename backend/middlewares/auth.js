@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-export const verify = async (req, resp, next) => {
+ export const verify = async (req, resp, next) => {
     try {
         const bearerHeader = req.header("Authorization");
         if (!bearerHeader) {
@@ -17,3 +17,4 @@ export const verify = async (req, resp, next) => {
         resp.status(500).json({error:error.message});
     }
 };
+

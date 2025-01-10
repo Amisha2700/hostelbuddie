@@ -4,7 +4,7 @@ import users from "../models/users.js";
 //CREATE POST
 export const makePost=async(req,resp)=>{
     try{
-        const {username,sid, picturepath,caption}=req.body;
+        const {username,sid,itemName,itemDescription,contactInformation, picturepath,caption}=req.body;
         const pictureUrl = picturepath; //the cloudinary url of the image uploaded
         const user=await users.findOne({sid:sid});
         if(!user){
@@ -12,10 +12,12 @@ export const makePost=async(req,resp)=>{
         }
 
         const newpost=new posts({
-            userid:user._id,
+            sid:user.sid,
             username,
             picturepath:pictureUrl, //cloudinary url saved to post
-            caption,
+            itemName,
+            itemDescription,
+            contactInformation,
             comments:[]
         });
         //post saved to mongodb
@@ -55,8 +57,8 @@ export const readSpecific=async(req,resp)=>{
 export const update=async(req,resp)=>{
     try{
         const id=req.params.postid;
-        const {userid,username,comment}=req.body;
-        const newcomment={userid, username, comment};
+        const {sid,username,comment}=req.body;
+        const newcomment={sid, username, comment};
         const post=await posts.findById(id);
         //posts.comments.push(newcomment);
         const updated=await posts.findOneAndUpdate(

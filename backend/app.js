@@ -37,14 +37,14 @@ app.use("/posts/buy-sell", buySellRoutes);
 //     }
 // })
 
-app.post("/cloudUpload",upload.single("file"),cloudinaryFile,(req,res)=>{ //uploading files- to check
-    try{
-        return res.status(200).json({message:"File uploaded successfully!"});
-    }
-    catch(error){
-        return res.status(500).json({error:error.message});
-    }
-})
+// app.post("/cloudUpload",upload.single("file"),cloudinaryFile,(req,res)=>{ //uploading files- to check
+//     try{
+//         return res.status(200).json({message:"File uploaded successfully!"});
+//     }
+//     catch(error){
+//         return res.status(500).json({error:error.message});
+//     }
+// })
 
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{

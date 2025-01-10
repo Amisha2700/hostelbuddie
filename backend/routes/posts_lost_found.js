@@ -1,8 +1,8 @@
 import express from "express";
 import { makePost,readFeed,readSpecific,update,deletePost } from "../controllers/posts_lost_found.js";
-import { verify } from "../middlewares/auth.js";
+import  {verify}  from "../middlewares/auth.js";
 // import { uploadFile } from "../middlewares/upload.js";
-import { cloudinaryFile,upload } from '../middlewares/cloudinary.js';
+import { upload,cloudinaryFile } from '../middlewares/cloudinary.js';
 
 const router=express.Router();
 
