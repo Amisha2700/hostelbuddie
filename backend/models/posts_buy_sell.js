@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const itemSchema = new mongoose.Schema(//picture add karni hai 
+const itemSchema = new mongoose.Schema(
   {
     userid:{
       type:String,
@@ -9,7 +9,9 @@ const itemSchema = new mongoose.Schema(//picture add karni hai
     username:{
       type:String,
       required:true},
-      
+     
+    picturepath:String,
+
     itemName: {
       type: String,
       required: true,
