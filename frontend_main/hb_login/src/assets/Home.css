@@ -486,3 +486,46 @@ CSS FOR THE BUTTONS UNDER 2 FEATURES */
   height: auto;
   display: block;
 }
+
+.display-button{
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Animated button styling */
+.animated-display-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  background: url('https://i.pinimg.com/736x/34/f8/cb/34f8cbb7285cf692fc7548f9ebe74547.jpg') no-repeat center center / cover;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-display-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-45deg);
+  transition: left 0.5s;
+}
+
+.animated-display-button:hover::before {
+  left: 100%;
+}
+
+.animated-display-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
