@@ -1,67 +1,106 @@
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import './assets/Auth.css'; // Import your CSS file
-import logo from './assets/hb_logo.png';
-import React from 'react';
+import React, { useState } from 'react';
+import './Forms.css';
 
 const Lost = () => {
+  const [formData, setFormData] = useState({
+    itemName: '',
+    itemDescription: '',
+    contactInfo: '',
+    itemImage: null,
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleFileChange = (e) => {
+    setFormData({
+      ...formData,
+      itemImage: e.target.files[0],
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Lost Form Submitted', formData);
+
+    // Reset form fields
+    setFormData({
+      itemName: '',
+      itemDescription: '',
+      contactInfo: '',
+      itemImage: null,
+    });
+  };
+
   return (
-    <div>
-      <header className="header">
-        <h1>Lost & Found Portal</h1>
-      </header>
+    <div className="container">
+      <div className="card">
+        <h1 className="title">🔍 Lost Item Portal</h1>
+        <p className="subtitle">Report lost items and help them find their way back to you!</p>
+        <form onSubmit={handleSubmit} className="form">
+          <div className="form-group">
+            <label htmlFor="itemName" className="label">Item Name:</label>
+            <input
+              type="text"
+              id="itemName"
+              name="itemName"
+              value={formData.itemName}
+              onChange={handleChange}
+              required
+              className="input"
+              placeholder="Enter the name of the lost item"
+            />
+          </div>
 
-      <section className="content">
-        <div className="form-container">
-          <form action="" method="POST">
-            <label htmlFor="item-name">Item Name:</label>
-            <input type="text" id="item-name" name="item-name" required />
+          <div className="form-group">
+            <label htmlFor="itemDescription" className="label">Item Description:</label>
+            <textarea
+              id="itemDescription"
+              name="itemDescription"
+              value={formData.itemDescription}
+              onChange={handleChange}
+              rows="4"
+              required
+              className="textarea"
+              placeholder="Describe the lost item"
+            />
+          </div>
 
-            <label htmlFor="item-description">Item Description:</label>
-            <textarea id="item-description" name="item-description" rows="4" required />
+          <div className="form-group">
+            <label htmlFor="contactInfo" className="label">Your Contact Info:</label>
+            <input
+              type="text"
+              id="contactInfo"
+              name="contactInfo"
+              value={formData.contactInfo}
+              onChange={handleChange}
+              required
+              className="input"
+              placeholder="Enter your email or phone number"
+            />
+          </div>
 
-            <label htmlFor="item-location">Last Known Location:</label>
-            <input type="text" id="item-location" name="item-location" required />
+          <div className="form-group">
+            <label htmlFor="itemImage" className="label">Upload Item Image:</label>
+            <input
+              type="file"
+              id="itemImage"
+              name="itemImage"
+              onChange={handleFileChange}
+              className="file-input"
+            />
+          </div>
 
-            <label htmlFor="contact-info">Contact Information:</label>
-            <input type="text" id="contact-info" name="contact-info" required />
-
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      </section>
-
-      <style jsx>{`
-        body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-          background-color: #f8f8f8;
-        }
-        .header {
-          background-color: #d686aa;
-          padding: 20px;
-          text-align: center;
-          color: white;
-        }
-        .content {
-          padding: 20px;
-        }
-        .form-container {
-          border: 1px solid #ddd;
-          border-radius: 5px;
-          padding: 16px;
-          background-color: #fff;
-          margin: 16px 0;
-        }
-        .form-container input,
-        .form-container textarea,
-        .form-container button {
-          width: 100%;
-          padding: 8px;
-          margin: 8px 0;
-        }
-      `}</style>
+          <button type="submit" className="button">
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

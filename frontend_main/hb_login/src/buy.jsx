@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Forms.css';
 
-const Found = () => {
+const Buy = () => {
   const [formData, setFormData] = useState({
     itemName: '',
     itemDescription: '',
@@ -26,7 +26,7 @@ const Found = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Found Form Submitted', formData);
+    console.log('Buy Form Submitted', formData);
 
     // Reset form fields
     setFormData({
@@ -40,8 +40,8 @@ const Found = () => {
   return (
     <div className="container">
       <div className="card">
-        <h1 className="title">📢 Found Item Portal</h1>
-        <p className="subtitle">Post details about items you've found to help locate their owner!</p>
+        <h1 className="title">🛒 Buy Item Portal</h1>
+        <p className="subtitle">Find the perfect item, or post a request to buy one!</p>
         <form onSubmit={handleSubmit} className="form">
           <div className="form-group">
             <label htmlFor="itemName" className="label">Item Name:</label>
@@ -53,7 +53,7 @@ const Found = () => {
               onChange={handleChange}
               required
               className="input"
-              placeholder="Enter the name of the found item"
+              placeholder="Enter the name of the item"
             />
           </div>
 
@@ -67,7 +67,7 @@ const Found = () => {
               rows="4"
               required
               className="textarea"
-              placeholder="Describe the found item"
+              placeholder="Describe the item you want to buy"
             />
           </div>
 
@@ -105,4 +105,4 @@ const Found = () => {
   );
 };
 
-export default Found;
+export default Buy;
