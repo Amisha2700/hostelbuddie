@@ -36,7 +36,16 @@ body::before {
   max-width: 250px;
   margin-bottom: 0px; 
   position: relative;
-  top: -70px;
+  top: -50px;
+}
+
+.logo1 {
+  position: relative;
+  top: 0.5px; /* Adjust this value for precise vertical positioning */
+  width: 150px; /* Adjust the size as needed */
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Center the logo horizontally */
 }
 
 .auth-form {
