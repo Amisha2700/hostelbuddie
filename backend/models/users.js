@@ -6,7 +6,7 @@ const schema=new mongoose.Schema({
         required:true
     },
     sid:{
-        type:String,
+        type:Number,
         required:true
     },
     emailid:{
@@ -22,5 +22,5 @@ const schema=new mongoose.Schema({
     {timestamps:true}//to add "created" and "updated" automatically 
 );
 
-const usermodel=mongoose.model("users",schema);
-export default usermodel;
+const user=mongoose.model("users",schema);
+export default user;

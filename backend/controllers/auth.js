@@ -19,6 +19,9 @@ export const register=async (req,resp)=>{
         if (!emailid.endsWith(collegeDomain)) {
             return resp.status(400).json({message:"Please use your college email address to sign up!"});
         }
+        const existingUser = await user.findOne({ emailid });
+        if (existingUser) {
+        return resp.status(400).json({ message: "Email already registered" });}
         const salt=await bcrypt.genSalt();
         const passwordF=await bcrypt.hash(password, salt);
         const newUser=new user({
