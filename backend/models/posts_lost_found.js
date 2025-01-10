@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const schema=new mongoose.Schema({
+const schema=new mongoose.Schema({//phone number,last location, item name, emailid
     userid:{
         type:String,
         required:true},

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const itemSchema = new mongoose.Schema(
+const itemSchema = new mongoose.Schema(//picture add karni hai 
   {
     userid:{
       type:String,
