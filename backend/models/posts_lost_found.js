@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const schema=new mongoose.Schema({//phone number,last location, item name, emailid
+const schema=new mongoose.Schema({
     userid:{
         type:String,
         required:true},
@@ -13,27 +13,31 @@ const schema=new mongoose.Schema({//phone number,last location, item name, email
 
     caption:String,
 
-    phoneNumber: {
-        type: String,
-        required: true,
-        match: [/^\d{10}$/, "Please enter a valid 10-digit phone number"]
-    },
-
-    lastLocation: {
-        type: String,
-        required: true
-    },
-
     itemName: {
         type: String,
-        required: true
-    },
-
-    emailid: {
+        required: true,
+      },
+  
+      itemDescription: {
         type: String,
         required: true,
-        match: [/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ , "Please enter a valid 10-digit phone number"]
+      },
+
+      contactInformation: {
+        type: String,
+        required: true,
+  
+        validate: {
+        validator: function (value) {
+          // Example: Check if it's a valid email or phone number
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          const phoneRegex = /^\+?[1-9]\d{1,14}$/; 
+          return emailRegex.test(value) || phoneRegex.test(value);
+        },
+        message: 'Enter valid email or phone number',
+      },
     },
+  
 
     comments:[{
         userid:{
