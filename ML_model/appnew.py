@@ -75,11 +75,11 @@ def find_matches():
         
         input_text_encoded = label_encoders['Name'].transform([input_text])[0]
 
-        weights = {
+        weights = { #SETTING PRIORITIES TO FEATURES
             'Gender': 1000000,  # Highest priority
             'Hosteller/Day scholar': 100000,  # Highest priority
             'Year': 90000,  # Next highest priority
-            'Branch': 5,  # Next priority
+            'Branch': 5,  
             'Are you a night owl or an early riser?': 10,
             'What are your food preferences?': 6,
             'What would you rate yourself on the scale of 1-5 in cleanliness ?(5-being you clean your room everyday)': 5,
