@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import './Forms.css';
 
 const Found = () => {
   const [formData, setFormData] = useState({
     itemName: '',
     itemDescription: '',
     contactInfo: '',
+    itemImage: null,
   });
 
   const handleChange = (e) => {
@@ -17,89 +17,92 @@ const Found = () => {
     });
   };
 
+  const handleFileChange = (e) => {
+    setFormData({
+      ...formData,
+      itemImage: e.target.files[0],
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Submitted', formData);
+    console.log('Found Form Submitted', formData);
+
+    // Reset form fields
     setFormData({
       itemName: '',
       itemDescription: '',
       contactInfo: '',
+      itemImage: null,
     });
   };
 
   return (
-    <div style={styles.content}>
-      <div style={styles.formContainer}>
-        <h1>Found Item Portal</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="itemName">Item Name:</label>
-          <input
-            type="text"
-            id="itemName"
-            name="itemName"
-            value={formData.itemName}
-            onChange={handleChange}
-            required
-            style={styles.input}
-          />
+    <div className="container">
+      <div className="card">
+        <h1 className="title">📢 Found Item Portal</h1>
+        <p className="subtitle">Post details about items you've found to help locate their owner!</p>
+        <form onSubmit={handleSubmit} className="form">
+          <div className="form-group">
+            <label htmlFor="itemName" className="label">Item Name:</label>
+            <input
+              type="text"
+              id="itemName"
+              name="itemName"
+              value={formData.itemName}
+              onChange={handleChange}
+              required
+              className="input"
+              placeholder="Enter the name of the found item"
+            />
+          </div>
 
-          <label htmlFor="itemDescription">Item Description:</label>
-          <textarea
-            id="itemDescription"
-            name="itemDescription"
-            value={formData.itemDescription}
-            onChange={handleChange}
-            rows="4"
-            required
-            style={styles.input}
-          />
+          <div className="form-group">
+            <label htmlFor="itemDescription" className="label">Item Description:</label>
+            <textarea
+              id="itemDescription"
+              name="itemDescription"
+              value={formData.itemDescription}
+              onChange={handleChange}
+              rows="4"
+              required
+              className="textarea"
+              placeholder="Describe the found item"
+            />
+          </div>
 
-          <label htmlFor="contactInfo">Your Contact Info:</label>
-          <input
-            type="text"
-            id="contactInfo"
-            name="contactInfo"
-            value={formData.contactInfo}
-            onChange={handleChange}
-            required
-            style={styles.input}
-          />
+          <div className="form-group">
+            <label htmlFor="contactInfo" className="label">Your Contact Info:</label>
+            <input
+              type="text"
+              id="contactInfo"
+              name="contactInfo"
+              value={formData.contactInfo}
+              onChange={handleChange}
+              required
+              className="input"
+              placeholder="Enter your email or phone number"
+            />
+          </div>
 
-          <button type="submit" style={styles.button}>
+          <div className="form-group">
+            <label htmlFor="itemImage" className="label">Upload Item Image:</label>
+            <input
+              type="file"
+              id="itemImage"
+              name="itemImage"
+              onChange={handleFileChange}
+              className="file-input"
+            />
+          </div>
+
+          <button type="submit" className="button">
             Submit
           </button>
         </form>
       </div>
     </div>
   );
-};
-
-const styles = {
-  content: {
-    padding: '20px',
-  },
-  formContainer: {
-    border: '1px solid #ddd',
-    borderRadius: '5px',
-    padding: '16px',
-    backgroundColor: '#fff',
-    margin: '16px 0',
-  },
-  input: {
-    width: '100%',
-    padding: '8px',
-    margin: '8px 0',
-  },
-  button: {
-    width: '100%',
-    padding: '8px',
-    margin: '8px 0',
-    backgroundColor: '#d686aa',
-    color: 'white',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-  },
 };
 
 export default Found;

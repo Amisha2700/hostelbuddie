@@ -16,7 +16,13 @@ The project aims to provide features such as roommate finder using machine learn
 - **Frontend**: 
   - HTML
   - CSS
+  - React
+  - Vite
   - Bootstrap(framework)
+  - Javascript
+  - Node.js
+  - Axios
+  - React Router
   
 
 - **Backend**:
@@ -44,4 +50,15 @@ The project aims to provide features such as roommate finder using machine learn
 
 - **Testing**:
   - Postman for API testing
+  - ThunderClient Extension
+
+
+## Contributors
+
+-**Amisha Gupta**<br>
+-**Himanshi Garg**<br>
+-**Mihira Gupta**<br>
+-**Ananyaa Priyadarshini**
+
+
 
