@@ -15,13 +15,13 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!email.endsWith('@pec.edu.in')) {
-      alert('Invalid email domain. Only emails ending with @pec.edu.in are allowed.');
-      return;
-    }
+    // if (!email.endsWith('@pec.edu.in')) {
+    //   alert('Invalid email domain. Only emails ending with @pec.edu.in are allowed.');
+    //   return;
+    // }
 
     try {
-      const response = await axios.post('http://localhost:5002/login', { email, password });
+      const response = await axios.post('http://localhost:4200/auth/login', { email, password });
       console.log('Response from server:', response.data);
 
       if (response.data.success) {
@@ -34,7 +34,7 @@ function Login() {
         alert('Invalid email or password');
       } else {
         console.error('Error:', err);
-        alert('An error occurred. Please try again later.');
+        alert(err.message);
       }
     }
   };
