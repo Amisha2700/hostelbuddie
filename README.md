@@ -52,3 +52,13 @@ The project aims to provide features such as roommate finder using machine learn
   - Postman for API testing
   - ThunderClient Extension
 
+
+## Contributors
+
+-**Amisha Gupta**
+-**Himanshi Garg**
+-**Mihira Gupta**
+-**Ananyaa Priyadarshini**
+
+
+
