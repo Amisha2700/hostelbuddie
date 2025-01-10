@@ -47,6 +47,7 @@ The project aims to provide features such as roommate finder using machine learn
 - **Machine Learning**:
   - Cosine Similarity for roommate matchmaking
   - Flask (Python)
+  - Flask-CORS for react flask integration
 
 - **Testing**:
   - Postman for API testing
