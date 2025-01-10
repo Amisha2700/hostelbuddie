@@ -1,13 +1,13 @@
 import express from "express";
 import { makePost,readFeed,readSpecific,update,deletePost } from "../controllers/posts_lost_found.js";
 import { verify } from "../middlewares/auth.js";
-import { uploadFile } from "../middlewares/upload.js";
-import { cloudinaryFile } from '../middlewares/cloudinary.js';
+// import { uploadFile } from "../middlewares/upload.js";
+import { cloudinaryFile,upload } from '../middlewares/cloudinary.js';
 
 const router=express.Router();
 
 //creation
-router.post("/newPosts",verify,uploadFile,cloudinaryFile,makePost);
+router.post("/newPosts",verify,upload,cloudinaryFile,makePost);
 
 //finding
 router.get("/",verify,readFeed); //feed

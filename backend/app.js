@@ -12,15 +12,17 @@ app.use(express.json());
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import postRoutes from "./routes/posts_lost_found.js";
+import buySellRoutes from "./routes/posts_buy_sell.js"; 
 
 import {verify} from "./middlewares/auth.js";
-import { uploadFile } from "./middlewares/upload.js"; 
+// import { uploadFile } from "./middlewares/upload.js"; 
 import { cloudinaryFile,upload } from "./middlewares/cloudinary.js";
 
 
 app.use("/auth",authRoutes);
 app.use("/users",userRoutes);
-app.use("/posts",postRoutes);
+app.use("/posts/lost-found", postRoutes);
+app.use("/posts/buy-sell", buySellRoutes);
 
 // app.get("/protected",verify,(req,resp)=>{  //working fine(verification waala)
 //     resp.json({message:req.user})
