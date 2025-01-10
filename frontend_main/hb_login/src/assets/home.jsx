@@ -30,6 +30,11 @@ const Home = () => {
             <li><ScrollLink to="contact" smooth={true} duration={500}>Contact Us</ScrollLink></li>
           </ul>
         </nav>
+        <div className="display-button">
+      <Link to="/display" className="animated-display-button">
+        Check Whats New !
+      </Link>
+    </div>
 
 
         <h1 className="slogan">HostelBuddy: Your Home Away From Home</h1>
@@ -90,10 +95,10 @@ const Home = () => {
             {dropdown.buyAndSell && (
               <div className="dropdown-menu">
                 <Link to="/buy">
-                  <button className="feature-button">Post an Ad</button>
+                  <button className="feature-button">Buy?</button>
                 </Link>
                 <Link to="/sell">
-                  <button className="feature-button">Buy?</button>
+                  <button className="feature-button">Post an Ad</button>
                 </Link>
               </div>
             )}
