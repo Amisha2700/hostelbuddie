@@ -51,7 +51,7 @@ The project aims to provide features such as roommate finder using machine learn
 
 - **Testing**:
   - Postman for API testing
-  - ThunderClient Extension
+ 
 
 
 ## Contributors
