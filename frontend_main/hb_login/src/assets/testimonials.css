@@ -4,6 +4,7 @@
     text-align: center !important;
     position: relative !important;
     overflow: hidden!important;
+    background: url(https://i.pinimg.com/736x/6e/1e/d1/6e1ed151bef48ea4910054734a93a155.jpg);
     animation: fadeInSection 1.5s ease-in-out !important;
   }
   
@@ -44,7 +45,7 @@
     justify-content: space-between !important;
     position: relative !important;
     transition: transform 0.5s ease, box-shadow 0.5s ease , rotateY 0.5s ease !important;
-    backdrop-filter: blur(10px) !important;
+    backdrop-filter: blur(50px) !important;
     animation: float 4s ease-in-out infinite !important;
     transform-origin: center !important;
     align-items: center !important;

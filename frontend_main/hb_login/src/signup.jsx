@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './assets/Auth.css'; // Import your CSS file
-import logo from './assets/hb_logo.png';
+import logo1 from './assets/hb_logo.png';
 
 function Register() {
   const [name, setName] = useState('');
@@ -30,7 +30,7 @@ function Register() {
 
   return (
     <div className="auth-container">
-      <img src={logo} alt="HostelBuddy Logo" className="logo" />
+      <img src={logo1} alt="HostelBuddy Logo" className="logo1" />
       <div className="auth-form">
         <h2>Register</h2>
         <form onSubmit={handleSubmit}>
