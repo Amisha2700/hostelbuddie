@@ -5,7 +5,7 @@ import './assets/Auth.css'; // Import your CSS file
 import logo1 from './assets/hb_logo.png';
 
 function Register() {
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ function Register() {
     }
 
     try {
-      const response = await axios.post('http://localhost:5002/register', { name, email, password });
+      const response = await axios.post('http://localhost:5002/register', { username, email, password });
       console.log(response.data);
       navigate('/login');
     } catch (err) {
@@ -35,14 +35,14 @@ function Register() {
         <h2>Register</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="username">Username</label>
             <input
               type="text"
-              placeholder="Enter Name"
+              placeholder="Enter Username"
               autoComplete="off"
-              name="name"
+              name="username"
               className="form-control"
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div className="form-group">
