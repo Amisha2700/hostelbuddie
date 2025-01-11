@@ -1,8 +1,17 @@
-# React + Vite
+# Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The frontend of the HostelBuddy project is designed to provide a user-friendly interface for solving hostel-related problems efficiently. Built using modern web technologies, it offers an intuitive and responsive user experience.
 
-Currently, two official plugins are available:
+**TechStacks Used**
+-HTML: For structuring the content of the web application.
+-CSS: For designing and styling the application and the webpages.
+-JavaScript : For implementing interactivity and dynamic features.
+-React.js : For building reusable and efficient UI components.
+-Bootstrap: To create responsive layouts and pre-designed components.
+-Axios: For handling HTTP requests and interacting with backend APIs.
+-React Router: For managing routing and navigation in the app,linking the webpages together.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+-
+
