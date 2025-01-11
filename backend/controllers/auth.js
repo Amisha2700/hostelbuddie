@@ -16,6 +16,9 @@ export const register=async (req,resp)=>{
             sid,
             email,
             password,}=req.body;
+        if (!email || email.trim() === '') {
+            return resp.status(400).json({ message: 'Email is required' });
+        }
         if (!email.endsWith(collegeDomain)) {
             return resp.status(400).json({message:"Please use your college email address to sign up!"});
         }
