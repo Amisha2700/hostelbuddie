@@ -8,6 +8,8 @@ The frontend of the HostelBuddy project is designed to provide a user-friendly i
 -CSS: For designing and styling the application and the webpages.<br>
 -JavaScript : For implementing interactivity and dynamic features.<br>
 -React.js : For building reusable and efficient UI components.<br>
+-Node.js: For managing dependencies and running build scripts.<br>
+-Vite: For fast development server and optimization.<br>
 -Bootstrap: To create responsive layouts and pre-designed components.<br>
 -Axios: For handling HTTP requests and interacting with backend APIs.<br>
 -React Router: For managing routing and navigation in the app,linking the webpages together.<br>
