@@ -13,24 +13,22 @@ export const register=async (req,resp)=>{
     try{
         const{
             username,
-            sid,
-            email,
+            emailid,
             password,}=req.body;
-        if (!email || email.trim() === '') {
+        if (!emailid || emailid.trim() === '') {
             return resp.status(400).json({ message: 'Email is required' });
         }
-        if (!email.endsWith(collegeDomain)) {
+        if (!emailid.endsWith(collegeDomain)) {
             return resp.status(400).json({message:"Please use your college email address to sign up!"});
         }
-        const existingUser = await user.findOne({ email });
+        const existingUser = await user.findOne({ emailid });
         if (existingUser) {
         return resp.status(400).json({ message: "Email already registered" });}
         const salt=await bcrypt.genSalt();
         const passwordF=await bcrypt.hash(password, salt);
         const newUser=new user({
             username,
-            sid,
-            email,
+            emailid,
             password:passwordF,
         });
         const saveUser=await newUser.save();
@@ -44,8 +42,8 @@ export const register=async (req,resp)=>{
 //LOGIN
 export const login=async(req,resp)=>{
     try{
-        const {email,password}=req.body;
-        const currentUser=await user.findOne({email:email});
+        const {emailid,password}=req.body;
+        const currentUser=await user.findOne({emailid:emailid});
         if(!currentUser){
             return resp.status(404).json({message:"User not found"});
         }

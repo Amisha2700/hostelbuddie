@@ -5,11 +5,11 @@ const schema=new mongoose.Schema({
         type:String,
         required:true
     },
-    sid:{
-        type:Number,
-        required:true
-    },
-    email:{
+    // sid:{
+    //     type:Number,
+    //     required:true
+    // },
+    emailid:{
         type:String,
         required:true,
         unique: true,

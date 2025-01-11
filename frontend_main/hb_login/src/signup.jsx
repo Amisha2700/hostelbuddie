@@ -6,24 +6,29 @@ import logo1 from './assets/hb_logo.png';
 
 function Register() {
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
+  const [emailid, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!email.endsWith('@pec.edu.in')) {
+    if (!emailid.endsWith('@pec.edu.in')) {
       alert('Invalid email domain. Only emails ending with @pec.edu.in are allowed.');
       return;
     }
 
     try {
-      const response = await axios.post('http://localhost:5002/register', { username, email, password });
+      const response = await axios.post('http://localhost:4200/auth/register', { username, emailid, password });
       console.log(response.data);
       navigate('/login');
     } catch (err) {
+
       console.error(err);
+      if (err.response && err.response.data && err.response.data.message === 'Email already registered') {
+        alert('This email is already registered. Please use a different email or try logging in.');
+      }
+      else
       alert('Registration failed. Please try again.');
     }
   };
@@ -46,12 +51,12 @@ function Register() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="emailid">Email</label>
             <input
               type="email"
               placeholder="Enter Email"
               autoComplete="off"
-              name="email"
+              name="emailid"
               className="form-control"
               onChange={(e) => setEmail(e.target.value)}
             />
