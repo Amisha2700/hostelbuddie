@@ -14,12 +14,12 @@ export const register=async (req,resp)=>{
         const{
             username,
             sid,
-            emailid,
+            email,
             password,}=req.body;
-        if (!emailid.endsWith(collegeDomain)) {
+        if (!email.endsWith(collegeDomain)) {
             return resp.status(400).json({message:"Please use your college email address to sign up!"});
         }
-        const existingUser = await user.findOne({ emailid });
+        const existingUser = await user.findOne({ email });
         if (existingUser) {
         return resp.status(400).json({ message: "Email already registered" });}
         const salt=await bcrypt.genSalt();
@@ -27,7 +27,7 @@ export const register=async (req,resp)=>{
         const newUser=new user({
             username,
             sid,
-            emailid,
+            email,
             password:passwordF,
         });
         const saveUser=await newUser.save();
@@ -41,8 +41,8 @@ export const register=async (req,resp)=>{
 //LOGIN
 export const login=async(req,resp)=>{
     try{
-        const {emailid,password}=req.body;
-        const currentUser=await user.findOne({emailid:emailid});
+        const {email,password}=req.body;
+        const currentUser=await user.findOne({email:email});
         if(!currentUser){
             return resp.status(404).json({message:"User not found"});
         }
@@ -56,7 +56,7 @@ export const login=async(req,resp)=>{
 
         //delete currentUser.password;//this doesn't work
 
-        resp.json({generateToken,userObject});
+        resp.json({success: true,generateToken,userObject});
     }
     catch(error){
         resp.status(500).json({"error":error.message});

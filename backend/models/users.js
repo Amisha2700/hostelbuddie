@@ -9,7 +9,7 @@ const schema=new mongoose.Schema({
         type:Number,
         required:true
     },
-    emailid:{
+    email:{
         type:String,
         required:true,
         unique: true,
