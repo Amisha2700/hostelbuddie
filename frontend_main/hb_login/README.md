@@ -3,6 +3,7 @@
 The frontend of the HostelBuddy project is designed to provide a user-friendly interface for solving hostel-related problems efficiently. Built using modern web technologies, it offers an intuitive and responsive user experience.
 
 **TechStacks Used**
+<br>
 -HTML: For structuring the content of the web application.<br>
 -CSS: For designing and styling the application and the webpages.<br>
 -JavaScript : For implementing interactivity and dynamic features.<br>
