@@ -6,12 +6,9 @@ import Register from "./signup.jsx";
 import Buy from './buy.jsx'; 
 import Sell from './sell.jsx'; 
 import Lost from './lost.jsx';
- import Found from './found.jsx';
-  import Roommate from './roommate.jsx';
-import Match from './match.jsx';
-
-  
-
+import Found from './found.jsx';
+import Roommate from './roommate.jsx';
+import MatchesPage from './match.jsx';
 
 
 
