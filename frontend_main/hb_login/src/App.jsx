@@ -26,7 +26,7 @@ function App() {
           <Route path="/roommate" element={<Roommate />} />
           <Route path="/lost" element={<Lost/>} />
           <Route path="/found" element={<Found/>} />
-          <Route path="/match" element={<Match/>} />
+          <Route path="/match" element={<MatchesPage/>} />
           
 
         </Routes>
