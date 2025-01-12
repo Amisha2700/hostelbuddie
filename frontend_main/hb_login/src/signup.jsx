@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './assets/Auth.css'; 
+import './assets/Login.css'; 
 import logo1 from './assets/hb_logo.png';
 
 function Register() {
