@@ -7,22 +7,22 @@ export const createPost = async (req, res)=>{
 
 //try block handles error
     try{
-        const {userid, itemName, itemDescription, price, contactInformation, comments} = req.body
-        const user=await users.findOne({sid:sid});
-
+        const {emailid, itemName, itemDescription, price, contactInformation,picturepath} = req.body
+        const user=await users.findOne({emailid:emailid});
+        const pictureUrl = picturepath;
+        //console.log(req.body);
 //if invalid user
         if(!user){
             return res.status(404).json({message:"User not found!"})
         }
 
 //all fields are required
-        if (!userid || !itemName || !itemDescription || price === undefined || !contactInformation) {
+        if (!emailid || !itemName || !itemDescription || price === undefined || !contactInformation) {
             return res.status(400).json({ message: "Please fill all fields" });
           }
         
         const newPost = new posts({
-            userid:user._id,
-            username,
+            picturepath:pictureUrl,
             itemName,
             itemDescription,
             price,
@@ -71,14 +71,14 @@ export const readSpec = async(req,res)=>{
 export const update=async(req,res)=>{
     try{
         const id = req.params.postid;
-        const {userid , username , comment} = req.body;
-        const newComm = {userid , username , comment};
+        const { username , comment} = req.body;
+        const newComm = { username , comment};
 
         const post = await posts.findById(id)
         const updated = await posts.findOneandUpdate(
             {_id:id},
             //push the newcomment in the comments array
-            { $push: { comments: newcomment } }, 
+            { $push: { comments: newComm } }, 
             {new:true}
         )
 
@@ -102,7 +102,7 @@ export const deletePost = async(req,res)=>{
             return res.status(404).json("Post not found! ", error);
         }
         else{
-            const to_delete = await posts.deleteOne({_id:postid});
+            const to_delete = await posts.deleteOne({_id:id});
 
             if(to_delete.deletedCount === 1){
                 return res.status(200).send("Post deleted successfully!")

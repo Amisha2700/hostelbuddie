@@ -1,20 +1,21 @@
 import posts from "../models/posts_lost_found.js";
 import users from "../models/users.js";
-
+import express from "express"
+const app=express();
+app.use(express.json())
 //CREATE POST
 export const makePost=async(req,resp)=>{
     try{
-        const {username,sid,itemName,itemDescription,contactInformation, picturepath,caption}=req.body;
+        const {emailid,itemName,itemDescription,contactInformation,picturepath}=req.body;
         const pictureUrl = picturepath; //the cloudinary url of the image uploaded
-        const user=await users.findOne({sid:sid});
+        const user=await users.findOne({emailid:emailid});
+        //console.log(req.body.itemName);
         if(!user){
             return resp.status(404).json({message:"User not found!"});
         }
-
+        
         const newpost=new posts({
-            sid:user.sid,
-            username,
-            picturepath:pictureUrl, //cloudinary url saved to post
+           picturepath:pictureUrl, //cloudinary url saved to post
             itemName,
             itemDescription,
             contactInformation,
@@ -57,8 +58,8 @@ export const readSpecific=async(req,resp)=>{
 export const update=async(req,resp)=>{
     try{
         const id=req.params.postid;
-        const {sid,username,comment}=req.body;
-        const newcomment={sid, username, comment};
+        const {username,comment}=req.body;
+        const newcomment={ username, comment};
         const post=await posts.findById(id);
         //posts.comments.push(newcomment);
         const updated=await posts.findOneAndUpdate(
