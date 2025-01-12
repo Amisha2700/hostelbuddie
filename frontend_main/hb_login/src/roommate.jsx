@@ -363,10 +363,10 @@ const Roommate = () => {
   };
 
   const generateMatches = async () => {
-    if (!formFilled) {
-      alert('Please fill the form first!');
-      return;
-    }
+    // if (!formFilled) {
+    //   alert('Please fill the form first!');
+    //   return;
+    // }
 
     if (!name.trim()) {
       alert('Please enter your name!');
