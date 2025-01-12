@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Forms.css';
-
+import axios from 'axios';
 const Lost = () => {
   const [formData, setFormData] = useState({
     itemName: '',
@@ -24,9 +24,32 @@ const Lost = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     console.log('Lost Form Submitted', formData);
+
+    try {
+      const data = new FormData();
+      data.append('itemName', formData.itemName);
+      data.append('itemDescription', formData.itemDescription);
+      data.append('contactInformation', formData.contactInfo);
+      data.append('picturepath', formData.itemImage);
+      const email = localStorage.getItem('emailid');
+      data.append('emailid', email);
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${localStorage.getItem('generatetoken')}`, // Include a token if your `verify` middleware requires authentication
+        },
+      };
+
+      const response = await axios.post(
+        'http://localhost:4200/posts/lost-found/newPosts',
+        data,
+        config
+      );
+
+      console.log('Post created successfully:', response.data);
 
     // Reset form fields
     setFormData({
@@ -35,6 +58,9 @@ const Lost = () => {
       contactInfo: '',
       itemImage: null,
     });
+  }catch(error){
+    console.error('Error creating post:', error.response ? error.response.data : error.message);
+  }
   };
 
   return (
