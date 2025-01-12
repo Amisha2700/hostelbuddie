@@ -2,8 +2,11 @@ from flask import Flask, request, jsonify
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.metrics.pairwise import cosine_similarity
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # To enable CORS for all routes
+
 
 # Preprocessing Function
 def preprocess(data):
