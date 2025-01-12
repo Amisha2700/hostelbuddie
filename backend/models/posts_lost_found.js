@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 
 const schema=new mongoose.Schema({
-    sid:{
-        type:Number,
-        required:true},
+    // sid:{
+    //     type:Number,
+    //     required:true},
 
-    username:{
-        type:String,
-        required:true},
+    // username:{
+    //     type:String,
+    //     required:true},
 
     picturepath:String,
 
@@ -38,10 +38,10 @@ const schema=new mongoose.Schema({
   
 
     comments:[{
-        userid:{
-            type:String,
-            required:true,
-        },
+        // userid:{
+        //     type:String,
+        //     required:true,
+        // },
         username:{
             type:String,
             required:true,
