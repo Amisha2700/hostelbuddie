@@ -11,7 +11,7 @@ CORS(app)  # To enable CORS for all routes
 # Preprocessing Function
 def preprocess(data):
     relevant_columns = [
-        'Name', 'Gender', 'Year', 'Branch', 'Hosteller/Day scholar',
+        'Name','PEC ID' ,'Gender', 'Year', 'Branch', 'Hosteller/Day scholar',
         'What are your food preferences?',
         'What would you rate yourself on the scale of 1-5 in cleanliness ?(5-being you clean your room everyday)',
         'Home city/town', 'Are you a night owl or an early riser?'
@@ -62,7 +62,7 @@ def find_matches():
 
         # Encode and scale data
         label_encoders = {}
-        for col in ['Name', 'Gender', 'Year', 'Home city/town', 'Hosteller/Day scholar', 'Branch', 
+        for col in ['Name','PEC ID','Gender', 'Year', 'Home city/town', 'Hosteller/Day scholar', 'Branch', 
                      'What are your food preferences?', 'Are you a night owl or an early riser?']:
             if data[col].dtype == 'object':
                 le = LabelEncoder()
@@ -87,7 +87,8 @@ def find_matches():
             'What are your food preferences?': 6,
             'What would you rate yourself on the scale of 1-5 in cleanliness ?(5-being you clean your room everyday)': 5,
             'Home city/town': 1,
-            'Name': 0  # Adding 'Name' to weights with 0 to include in weighted_df but not affect similarity
+            'Name': 0,  # Adding 'Name' to weights with 0 to include in weighted_df but not affect similarity
+            'PEC ID': 0
         }
 
         weighted_df = data.copy()
