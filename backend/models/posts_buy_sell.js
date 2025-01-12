@@ -2,13 +2,13 @@ import mongoose from "mongoose";
 
 const itemSchema = new mongoose.Schema(
   {
-    userid:{
-      type:String,
-      required:true},
+    // userid:{
+    //   type:String,
+    //   required:true},
 
-    username:{
-      type:String,
-      required:true},
+    // username:{
+    //   type:String,
+    //   required:true},
      
     picturepath:String,
 
@@ -44,10 +44,10 @@ const itemSchema = new mongoose.Schema(
   },
   
     comments:[{
-      userid:{
-          type:String,
-          required:true,
-      },
+      // userid:{
+      //     type:String,
+      //     required:true,
+      // },
       username:{
           type:String,
           required:true,

@@ -9,7 +9,7 @@ export const makePost=async(req,resp)=>{
         const {emailid,itemName,itemDescription,contactInformation,picturepath}=req.body;
         const pictureUrl = picturepath; //the cloudinary url of the image uploaded
         const user=await users.findOne({emailid:emailid});
-        console.log(req.body.itemName);
+        //console.log(req.body.itemName);
         if(!user){
             return resp.status(404).json({message:"User not found!"});
         }
