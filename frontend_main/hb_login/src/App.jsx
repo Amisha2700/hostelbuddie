@@ -9,7 +9,7 @@ import Lost from './lost.jsx';
 import Found from './found.jsx';
 import Roommate from './roommate.jsx';
 import MatchesPage from './match.jsx';
-
+// import Profile from './Profile.jsx';
 
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
           <Route path="/lost" element={<Lost/>} />
           <Route path="/found" element={<Found/>} />
           <Route path="/match" element={<MatchesPage/>} />
-          
+          <Route path="/Profile" element={<Profile/>} />
 
         </Routes>
       </div>

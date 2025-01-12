@@ -1,9 +1,15 @@
 import express from "express";
-import {searchUser,updatePassword} from "../controllers/users.js";
+import {searchUser,updatePassword, updateUsername, viewProfile} from "../controllers/users.js";
 
 const router=express.Router();
 
+//route to search using mail id
 router.get("/search/:emailid?",searchUser);
-router.post("/update/:emailid?",updatePassword);
+//route to update password
+router.post("/update-password/:emailid?",updatePassword);
+//route to update username
+router.post("/update-username/:emailid?", updateUsername);
+// Route to view profile
+router.get("/view-profile/:emailid?", viewProfile);
 
 export default router;
