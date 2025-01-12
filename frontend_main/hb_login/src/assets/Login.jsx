@@ -19,8 +19,12 @@ function Login() {
     }
 
     try {
-      const response = await axios.post('http://localhost:5002/login', { emailid, password });
+      const response = await axios.post('http://localhost:4200/auth/login', { emailid, password });
       console.log('Response from server:', response.data);
+      console.log(response.data.generateToken)
+      localStorage.setItem('emailid', emailid);
+      localStorage.setItem('generatetoken', response.data.generateToken);
+      console.log('Generated Token:', localStorage.getItem('generatetoken'));
 
       if (response.data.success) {
         navigate('/home'); // Navigate to home page on successful login

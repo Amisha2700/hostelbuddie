@@ -2,7 +2,7 @@ import cloudinary from "../config/cloudinary.js";
 import multer from "multer"
 import fs from "fs"
 
-export const upload=multer({dest:"uploaded"}).single("picture");
+export const upload=multer({dest:"uploaded"}).single("picturepath");
 
 export const cloudinaryFile = async (req, res, next) => {
   try {
