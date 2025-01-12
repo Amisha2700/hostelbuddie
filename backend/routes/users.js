@@ -3,6 +3,6 @@ import {searchUser} from "../controllers/users.js";
 
 const router=express.Router();
 
-router.get("/search/:sid?",searchUser);
+router.get("/search/:emailid?",searchUser);
 
 export default router;
