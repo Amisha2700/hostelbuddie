@@ -264,6 +264,12 @@ const Home = () => {
     const [posts, setPosts] = useState([]); // State to store fetched posts
     //const [showPosts, setShowPosts] = useState(false); // State to toggle posts display
     const navigate = useNavigate();
+    const toggleDropdown = (menu, isOpen) => {
+        setDropdown(prevState => ({
+            ...prevState,
+            [menu]: isOpen,
+        }));
+    };
 
     const fetchPosts = async () => {
       try {
