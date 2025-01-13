@@ -9,7 +9,10 @@ app.use(cors());
 
 dotenv.config();//to load the environment variables
 
-const PORT=process.env.PORT;
+// const PORT=process.env.PORT;
+//to access port
+const PORT=4200;
+
 
 app.use(express.json());
 
@@ -50,12 +53,23 @@ app.use("/posts/buy-sell", buySellRoutes);
 //     }
 // })
 
-mongoose.connect(process.env.MONGO_URL)
-.then(()=>{
-    console.log("Database Connected successfully!");
-    app.listen(PORT,()=>console.log(`Running on port ${PORT}`));
-})
-.catch((error)=>{
-    console.error("Database connection failed ",error.message);
-    process.exit(1);//exit if the database is not connected
-});
+// mongoose.connect(process.env.MONGO_URL)
+// .then(()=>{
+//     console.log("Database Connected successfully!");
+//     app.listen(PORT,()=>console.log(`Running on port ${PORT}`));
+// })
+// .catch((error)=>{
+//     console.error("Database connection failed ",error.message);
+//     process.exit(1);//exit if the database is not connected
+// });
+
+//to run db   
+// mongoose.connect("mongodb+srv://your username:password here@learning.cim4t.mongodb.net/?retryWrites=true&w=majority&appName=learning")
+// .then(()=>{
+//     console.log("Database Connected successfully!");
+//     app.listen(PORT,()=>console.log(`Running on port ${PORT}`));
+// })
+// .catch((error)=>{
+//     console.error("Database connection failed ",error.message);
+//     process.exit(1);//exit if the database is not connected
+// });
