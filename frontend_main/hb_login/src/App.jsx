@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from "./assets/Login.jsx";
-import Home from "./assets/Home.jsx";
+import Home from "./assets/home.jsx";
 import Register from "./signup.jsx";
 import Buy from './buy.jsx'; 
 import Sell from './sell.jsx'; 
@@ -10,7 +10,7 @@ import Found from './found.jsx';
 import Roommate from './roommate.jsx';
 import MatchesPage from './match.jsx';
 // import Profile from './Profile.jsx';
-
+import Display from "./assets/display.jsx";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
           <Route path="/lost" element={<Lost/>} />
           <Route path="/found" element={<Found/>} />
           <Route path="/match" element={<MatchesPage/>} />
-
+          <Route path="/display" element={<Display />} />
         </Routes>
       </div>
     </Router>
