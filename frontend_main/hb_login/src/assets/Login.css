@@ -3,7 +3,7 @@
 /* General styles */
 body {
   font-family: 'Arial', sans-serif;
-  background: url('cover.png') no-repeat center center fixed;
+  background: url('cover.png') no-repeat center center fixed !important;
   background-size: cover;
   display: flex;
   justify-content: center;
