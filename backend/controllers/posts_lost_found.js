@@ -36,6 +36,7 @@ export const readFeed=async(req,resp)=>{
     try{
         const post=await posts.find();
         resp.status(200).json(post);
+        //console.log(post);
     }
     catch(error){
         resp.status(404).json(error.message);
