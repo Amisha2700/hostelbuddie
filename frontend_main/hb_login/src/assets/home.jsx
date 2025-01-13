@@ -6,6 +6,8 @@ import "./Home.css";
 import "./testimonials.css";
 import logo from '../assets/hb_logo.png';
 import extra from '../assets/extra.png';
+import main from './Main_bg.png';
+
 
 const Home = () => {
   const [dropdown, setDropdown] = useState({ lostAndFound: false, buyAndSell: false });
@@ -22,6 +24,7 @@ const Home = () => {
         <div className="logo-container">
           <img src={logo} alt="HostelBuddy Logo" className="logo" />
         </div>
+        <Link to="/display" className="animated-display-button"> Check Whats New ! </Link>
         <nav className="navbar">
           <ul>
             <li><ScrollLink to="features" smooth={true} duration={500}>Features</ScrollLink></li>
@@ -31,26 +34,31 @@ const Home = () => {
           </ul>
         </nav>
         <div className="display-button">
-      <Link to="/display" className="animated-display-button">
-        Check Whats New !
-      </Link>
-    </div>
+
+        </div>
 
 
-        <h1 className="slogan">HostelBuddy: Your Home Away From Home</h1>
+        {/* <h1 className="slogan">HostelBuddy: Your Home Away From Home</h1>
         <p className="description">
           Whether you're a night owl, a study buddy, or the life of the party, HostelBuddy connects you with like-minded friends for an incredible hostel experience. Find your tribe, share epic moments, and create lasting memories.
           Your next adventure starts here!
-        </p>
+        </p> */}
         {/* Placeholder for images or other content */}
-        <div className="additional-content">
+        <header className="hero-section">
+          <img src={main} alt="Hero Background" className="hero-image" />
+        </header>
+
+        {/* <div className="additional-content">
           <img src={extra} alt="Additional Content" className="full-width-image" />
-        </div>
+        </div> */}
 
       </header>
 
       <main className="home-main">
-        <h1 style={{ textAlign: "center", color: "white", fontSize: "2.5rem", }}>WHAT WE OFFER ?</h1>
+        <h1 style={{ textAlign: "center", color: "", fontSize: "2.5rem", fontFamily: "'Playfair Display', serif" }}>
+          WHAT WE OFFER ?
+        </h1>
+
         <div id="features" className="features">
 
 
@@ -141,9 +149,10 @@ const Home = () => {
 
           {/* Testimonials Section */}
           <section id="testimonials">
-            <h1 className="text-center my-5" style={{ color: 'white', fontFamily: "'Montserrat', sans-serif" }}>
-              Testimonials
+            <h1 style={{ textAlign: "center", color: "white", fontSize: "2.5rem", fontFamily: "'Playfair Display', serif" }}>
+              TESTIMONIALS
             </h1>
+
             <div className="container">
               <div className="row">
                 <div className="card1">
