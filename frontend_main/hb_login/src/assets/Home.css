@@ -239,7 +239,8 @@ CSS FOR THE BUTTONS UNDER 2 FEATURES */
 }
 
 .feature-button:hover {
-  background-color: #0056b3;
+/*   background-color: #0056b3; */
+   background-color: #00b3a4;
   transform: scale(1.05);
 }
 
