@@ -1,0 +1,109 @@
+/* Container styling */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(85, 37, 130, 0.8), rgba(42, 245, 152, 0.8));
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    padding: 20px;
+    animation: fadeInBackground 2s ease-in-out;
+  }
+  
+  /* Card styling */
+  .profile-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    animation: slideIn 1s ease-out;
+    transform: translateY(30px); 
+  }
+  
+  /* Title styling */
+  .profile-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #4a148c;
+    animation: pulseTitle 2s infinite;
+  }
+  
+  /* Form group styling */
+  .profile-form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    animation: fadeIn 1.2s ease-in-out;
+  }
+  
+  /* Label styling */
+  .profile-label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #6a1b9a;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Value styling */
+  .profile-value {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #4a148c;
+    background: rgba(238, 238, 238, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+    word-wrap: break-word;
+    animation: floatValue 3s infinite;
+  }
+  
+  /* Animations */
+  
+  @keyframes fadeInBackground {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Pulse effect for the title */
+  @keyframes pulseTitle {
+    0% {
+      color: #4a148c;
+    }
+    50% {
+      color: #6a1b9a;
+    }
+    100% {
+      color: #4a148c;
+    }
+  }
+  
+  @keyframes floatValue {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
