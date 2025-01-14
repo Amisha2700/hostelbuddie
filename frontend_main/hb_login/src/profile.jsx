@@ -154,73 +154,121 @@
 
 // export default Profile;
 
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
+
+// const Profile = () => {
+//   const [profileData, setProfileData] = useState({
+//     username: '',
+//     emailid: '',
+//     password: '',
+//   });
+
+//   useEffect(() => {
+//     // Retrieve profile data from localStorage
+//     const storedProfileData = localStorage.getItem('profileData');
+//     if (storedProfileData) {
+//       setProfileData(JSON.parse(storedProfileData)); // Set the profile data if available
+//     }
+//   }, []); // Empty array ensures it runs once when component mounts
+
+//   return (
+//     <div style={styles.container}>
+//       <div style={styles.card}>
+//         <h1 style={styles.title}>👤 Your Profile</h1>
+//         <div style={styles.formGroup}>
+//           <label style={styles.label}>Username:</label>
+//           <p style={styles.profileValue}>{profileData.username || 'Not available'}</p>
+//         </div>
+
+//         <div style={styles.formGroup}>
+//           <label style={styles.label}>Email:</label>
+//           <p style={styles.profileValue}>{profileData.emailid || 'Not available'}</p>
+//         </div>
+
+//         <div style={styles.formGroup}>
+//           <label style={styles.label}>Password:</label>
+//           <p style={styles.profileValue}>********</p> {/* Password is hidden */}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// // Inline styles for the profile component
+// const styles = {
+//   container: {
+//     width: '80%',
+//     margin: '0 auto',
+//     padding: '20px',
+//   },
+//   card: {
+//     backgroundColor: '#fff',
+//     borderRadius: '8px',
+//     padding: '20px',
+//     boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+//   },
+//   title: {
+//     textAlign: 'center',
+//     fontSize: '2rem',
+//     marginBottom: '20px',
+//   },
+//   formGroup: {
+//     marginBottom: '15px',
+//   },
+//   label: {
+//     fontWeight: 'bold',
+//   },
+//   profileValue: {
+//     fontSize: '1.1rem',
+//   },
+// };
+
+// export default Profile;
+
+import React, { useState, useEffect } from "react";
+import "./Profile.css";
 
 const Profile = () => {
   const [profileData, setProfileData] = useState({
-    username: '',
-    emailid: '',
-    password: '',
+    username: "",
+    emailid: "",
+    password: "",
   });
 
   useEffect(() => {
     // Retrieve profile data from localStorage
-    const storedProfileData = localStorage.getItem('profileData');
+    const storedProfileData = localStorage.getItem("profileData");
     if (storedProfileData) {
       setProfileData(JSON.parse(storedProfileData)); // Set the profile data if available
     }
   }, []); // Empty array ensures it runs once when component mounts
 
   return (
-    <div style={styles.container}>
-      <div style={styles.card}>
-        <h1 style={styles.title}>👤 Your Profile</h1>
-        <div style={styles.formGroup}>
-          <label style={styles.label}>Username:</label>
-          <p style={styles.profileValue}>{profileData.username || 'Not available'}</p>
+    <div className="profile-container">
+      <div className="profile-card">
+        <h1 className="profile-title">✨ Your Profile ✨</h1>
+        <div className="profile-form-group">
+          <label className="profile-label">👤 Username:</label>
+          <p className="profile-value">
+            {profileData.username || "Not available"}
+          </p>
         </div>
 
-        <div style={styles.formGroup}>
-          <label style={styles.label}>Email:</label>
-          <p style={styles.profileValue}>{profileData.emailid || 'Not available'}</p>
+        <div className="profile-form-group">
+          <label className="profile-label">📧 Email:</label>
+          <p className="profile-value">
+            {profileData.emailid || "Not available"}
+          </p>
         </div>
 
-        <div style={styles.formGroup}>
-          <label style={styles.label}>Password:</label>
-          <p style={styles.profileValue}>********</p> {/* Password is hidden */}
+        <div className="profile-form-group">
+          <label className="profile-label">🔒 Password:</label>
+          <p className="profile-value">********</p> {/* Password is hidden */}
         </div>
       </div>
     </div>
   );
 };
 
-// Inline styles for the profile component
-const styles = {
-  container: {
-    width: '80%',
-    margin: '0 auto',
-    padding: '20px',
-  },
-  card: {
-    backgroundColor: '#fff',
-    borderRadius: '8px',
-    padding: '20px',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-  },
-  title: {
-    textAlign: 'center',
-    fontSize: '2rem',
-    marginBottom: '20px',
-  },
-  formGroup: {
-    marginBottom: '15px',
-  },
-  label: {
-    fontWeight: 'bold',
-  },
-  profileValue: {
-    fontSize: '1.1rem',
-  },
-};
-
 export default Profile;
+
