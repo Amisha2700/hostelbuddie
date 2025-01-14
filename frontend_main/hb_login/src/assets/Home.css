@@ -571,3 +571,55 @@ CSS FOR THE BUTTONS UNDER 2 FEATURES */
   border: 1px solid #ddd;
   border-radius: 5px;
 }
+
+
+.animated-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  max-width: 800px;
+  background: #34125c;
+  border: 2px solid #34125c;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  animation: moveBar 20s linear infinite;
+}
+
+@keyframes moveBar {
+  0% {
+      transform: translateX(-100%);
+  }
+  100% {
+      transform: translateX(100%);
+  }
+}
+
+.animated-bar label {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #F1B5FF;
+}
+
+.animated-bar button {
+  background: #A698C2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 35px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.animated-bar button:hover {
+  transform: scale(1.1);
+  background: #d8574a;
+}
+
+.animated-bar button:active {
+  transform: scale(0.95);
+}
+
+
