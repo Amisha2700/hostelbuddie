@@ -388,6 +388,7 @@ const Roommate = () => {
       const data = await response.json();
 
       if (response.ok) {
+              
         setMatches(data);
       } else {
         console.error('API Error:', data);
@@ -404,8 +405,8 @@ const Roommate = () => {
      //alert('There was an error fetching the matches. Please try again.');
               Swal.fire({
                       icon: 'warning',
-                      title: 'Login Failed',
-                      text: 'Please check your username and password and try again.',
+                      title: 'ERROR',
+                      text: 'There was an error fetching the matches. Please try again.',
                       confirmBUttonText: 'Retry',
               });
     } finally {
