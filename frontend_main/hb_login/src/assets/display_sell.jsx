@@ -28,6 +28,9 @@ const Display_sell = () => {
                   <span><b>Description:</b></span> {post.itemDescription}
                 </p>
                 <p>
+                  <span><b>Price:</b></span> {post.price}
+                </p>
+                <p>
                   <span><b>Contact:</b></span> {post.contactInformation}
                 </p>
               </div>
