@@ -394,8 +394,8 @@ const Roommate = () => {
         //alert(data.error || 'No matches found');
               Swal.fire({
                       icon: 'warning',
-                      title: 'Login Failed',
-                      text: 'Please check your username and password and try again.',
+                      title: 'Incorrect name',
+                      text: 'Please check your name or fill the form again.',
                       confirmBUttonText: 'Retry',
               });
       }
