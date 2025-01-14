@@ -12,6 +12,8 @@ import MatchesPage from './match.jsx';
 // import Profile from './Profile.jsx';
 import Display from "./assets/display.jsx";
 import Display1 from "./assets/display1.jsx";
+// import Display_sell from "./assets/display_sell.jsx"
+// import Display_lost from "./assets/display_lost.jsx"
 function App() {
   return (
     <Router>
@@ -29,6 +31,8 @@ function App() {
           <Route path="/match" element={<MatchesPage/>} />
           <Route path="/display" element={<Display />} />
           <Route path="/display1" element={<Display1 />} />
+{/*           <Route path="/display_sell" element={<Display_sell />} />
+          <Route path="/display_lost" element={<Display_lost/>} /> */}
         </Routes>
       </div>
     </Router>
