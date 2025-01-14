@@ -309,7 +309,7 @@ const Home = () => {
         const data = await response.json();
         console.log(data);
         setPosts(data);
-        navigate("/display", { state: { posts: data } });
+        navigate("/display_lost", { state: { posts: data } });
         //setShowPosts(true); // Show the posts after fetching
       } catch (error) {
         console.error("Error fetching posts:", error.message);
@@ -351,7 +351,7 @@ const Home = () => {
         const data = await response.json();
         console.log(data);
         setPosts1(data);
-        navigate("/display1", { state: { posts1: data } });
+        navigate("/display_sell", { state: { posts1: data } });
         //setShowPosts(true); // Show the posts after fetching
       } catch (error) {
         console.error("Error fetching posts:", error.message);

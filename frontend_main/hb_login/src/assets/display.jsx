@@ -156,7 +156,7 @@ const Display = () => {
     <div className="display-container">
       {(
         <div className="posts-container">
-          <h2 style={{ fontFamily: "'Playfair Display', serif" }}>Items Lost</h2>
+          <h2 style={{ fontFamily: "'Playfair Display', serif" }}>Items Found</h2>
           {posts.length > 0 ? (
             posts.map((post) => (
               <div key={post._id} className="post-card">
