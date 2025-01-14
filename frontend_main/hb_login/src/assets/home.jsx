@@ -408,6 +408,7 @@ const Home = () => {
                         <li><ScrollLink to="about" smooth={true} duration={500}>About Us</ScrollLink></li>
                         <li><ScrollLink to="testimonials" smooth={true} duration={500}>Testimonials</ScrollLink></li>
                         <li><ScrollLink to="contact" smooth={true} duration={500}>Contact Us</ScrollLink></li>
+                         <li><button> Profile </button></li>
                     </ul>
                 </nav>
                 <div className="display-button"></div>
