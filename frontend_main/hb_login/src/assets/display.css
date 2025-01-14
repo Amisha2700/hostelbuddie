@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #CEC4FF, #f7ede2);
+  background: linear-gradient(135deg, #e0c3fc, #8ec5fc); 
   font-family: 'Poppins', sans-serif;
   padding: 20px;
 }
@@ -22,7 +22,7 @@
 
 .posts-container h2 {
   text-align: center;
-  color: #5535f6;
+  color: #6a0dad; /* Deep purple */
   font-size: 2.2rem;
   margin-bottom: 30px;
   font-weight: 600;
@@ -33,7 +33,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: #d9d4f4;
+  background: #f3e5f5; 
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   padding: 20px;
@@ -57,17 +57,22 @@
 }
 
 .post-text h3 {
-  color: #124b42;
+  color: #4a148c; /* Deep purple text */
   font-size: 1.8rem;
   margin: 0;
   font-weight: 600;
 }
 
 .post-text p {
-  color: #4b4b4b;
+  color: #6a1b9a; /* Slightly darker purple */
   font-size: 1rem;
   line-height: 1.6;
   margin: 0;
+}
+
+.post-text p span {
+  font-weight: bold;
+  color: #4a148c; /* Strong purple for labels */
 }
 
 /* Post image styling */
@@ -77,14 +82,14 @@
   height: 150px;
   object-fit: cover;
   border-radius: 15px;
-  border: 3px solid #754480;
+  border: 3px solid #4a148c; /* Purple border */
   animation: floatImage 4s infinite;
 }
 
 /* No posts found message */
 .posts-container p {
   text-align: center;
-  color: #6d597a;
+  color: #6a1b9a; /* Muted purple */
   font-size: 1.2rem;
   margin-top: 20px;
 }
@@ -119,10 +124,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #124b42;
+  background: #6a0dad;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f0fdf4;
+  background: #f3e5f5;
 }
