@@ -14,16 +14,35 @@ const Display1 = () => {
           {posts1.length > 0 ? (
             posts1.map((post) => (
               <div key={post._id} className="post-card">
-                <img
+{/*                 <img
                   src={post.picturepath}
                   alt={post.itemName}
                   className="post-image"
                   style={{ width: "50%", height: "auto", borderRadius: "8px" }} // Custom styling
-                />
-                <h3>{post.itemName}</h3>
+                /> */}
+               <img
+                src={post.picturepath}
+                alt={post.itemName}
+                className="post-image"
+              />
+{/*                 <h3>{post.itemName}</h3>
                 <p>{post.itemDescription}</p>
                 <p>{post.price}</p>
-                <p>{post.contactInformation}</p>
+                <p>{post.contactInformation}</p> */}
+                <div className="post-text">
+                <p>
+                  <span><b>Item Name:</b></span> {post.itemName}
+                </p>
+                <p>
+                  <span><b>Description:</b></span> {post.itemDescription}
+                </p>
+                  <p>
+                  <span><b>Price :</b></span>{post.price}
+                  </p>
+                <p>
+                  <span><b>Contact:</b></span> {post.contactInformation}
+                </p>
+              </div>
               </div>
             ))
           ) : (

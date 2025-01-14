@@ -76,13 +76,22 @@
 }
 
 /* Post image styling */
-.post-image {
+/* .post-image {
   flex-shrink: 0;
   width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 15px;
-  border: 3px solid #4a148c; /* Purple border */
+  border: 3px solid #4a148c; 
+  animation: floatImage 4s infinite;
+} */
+.post-image {
+  flex-shrink: 0;
+  width: 300px; 
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid #4a148c; 
   animation: floatImage 4s infinite;
 }
 

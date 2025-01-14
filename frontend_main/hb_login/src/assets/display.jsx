@@ -160,12 +160,11 @@ const Display = () => {
           {posts.length > 0 ? (
             posts.map((post) => (
               <div key={post._id} className="post-card">
-                <img
-                  src={post.picturepath}
-                  alt={post.itemName}
-                  className="post-image"
-                  style={{ width: "50%", height: "auto", borderRadius: "8px" }} // Custom styling
-                />
+                 <img
+                src={post.picturepath}
+                alt={post.itemName}
+                className="post-image"
+              />
                 <div className="post-text">
                 <p>
                   <span><b>Item Name:</b></span> {post.itemName}
