@@ -14,12 +14,17 @@ const Display1 = () => {
           {posts1.length > 0 ? (
             posts1.map((post) => (
               <div key={post._id} className="post-card">
-                <img
+{/*                 <img
                   src={post.picturepath}
                   alt={post.itemName}
                   className="post-image"
                   style={{ width: "50%", height: "auto", borderRadius: "8px" }} // Custom styling
-                />
+                /> */}
+               <img
+                src={post.picturepath}
+                alt={post.itemName}
+                className="post-image"
+              />
 {/*                 <h3>{post.itemName}</h3>
                 <p>{post.itemDescription}</p>
                 <p>{post.price}</p>
