@@ -258,36 +258,69 @@ import "./testimonials.css";
 import logo from '../assets/hb_logo.png';
 import extra from '../assets/extra.png';
 import main from './Main_bg.png';
-
+import { useNavigate } from "react-router-dom";
 const Home = () => {
-  const [dropdown, setDropdown] = useState({ lostAndFound: false, buyAndSell: false });
-  const [posts, setPosts] = useState([]); // State to store fetched posts
-  const [showPosts, setShowPosts] = useState(false); // State to toggle posts display
-  const toggleDropdown = (menu, isOpen) => {
-    setDropdown((prevState) => ({ ...prevState, [menu]: isOpen }));
-};
+    const [dropdown, setDropdown] = useState({ lostAndFound: false, buyAndSell: false });
+    const [posts, setPosts] = useState([]); // State to store fetched posts
+    //const [showPosts, setShowPosts] = useState(false); // State to toggle posts display
+    const navigate = useNavigate();
+    const toggleDropdown = (menu, isOpen) => {
+        setDropdown(prevState => ({
+            ...prevState,
+            [menu]: isOpen,
+        }));
+    };
 
-  // Function to fetch posts from the backend
-  const fetchPosts = async () => {
+    const fetchPosts = async () => {
       try {
-          const response = await fetch("http://localhost:4200/posts/lost-found/",{
-            method: "GET",
-            headers: {
-                "Authorization": `Bearer ${localStorage.getItem('generatetoken')}`, // Replace with your actual token
-                "Content-Type": "application/json"
-            }
+        const response = await fetch("http://localhost:4200/posts/lost-found/", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("generatetoken")}`, // Replace with your actual token
+            "Content-Type": "application/json",
+          },
         });
-          if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          const data = await response.json();
-          console.log(data);
-          setPosts(data);
-          setShowPosts(true); // Show the posts after fetching
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log(data);
+        setPosts(data);
+        navigate("/display", { state: { posts: data } });
+        //setShowPosts(true); // Show the posts after fetching
       } catch (error) {
-          console.error("Error fetching posts:", error.message);
+        console.error("Error fetching posts:", error.message);
       }
-  };
+    };
+// const Home = () => {
+//   const [dropdown, setDropdown] = useState({ lostAndFound: false, buyAndSell: false });
+//   const [posts, setPosts] = useState([]); // State to store fetched posts
+//   const [showPosts, setShowPosts] = useState(false); // State to toggle posts display
+//   const toggleDropdown = (menu, isOpen) => {
+//     setDropdown((prevState) => ({ ...prevState, [menu]: isOpen }));
+// };
+
+//   // Function to fetch posts from the backend
+//   const fetchPosts = async () => {
+//       try {
+//           const response = await fetch("http://localhost:4200/posts/lost-found/",{
+//             method: "GET",
+//             headers: {
+//                 "Authorization": `Bearer ${localStorage.getItem('generatetoken')}`, // Replace with your actual token
+//                 "Content-Type": "application/json"
+//             }
+//         });
+//           if (!response.ok) {
+//               throw new Error(`HTTP error! status: ${response.status}`);
+//           }
+//           const data = await response.json();
+//           console.log(data);
+//           setPosts(data);
+//           setShowPosts(true); // Show the posts after fetching
+//       } catch (error) {
+//           console.error("Error fetching posts:", error.message);
+//       }
+//   };
 
     return (
         <div className="home">
@@ -320,58 +353,58 @@ const Home = () => {
             <main className="home-main">
                 <h1 style={{ textAlign: "center", color: "", fontSize: "2.5rem", fontFamily: "'Playfair Display', serif" }}> WHAT WE OFFER ? </h1>
                 <div id="features" className="features">
-                    <div
-                        className="feature-card dropdown-card"
-                        onMouseEnter={() => toggleDropdown("FindARoommate", true)}
-                        onMouseLeave={() => toggleDropdown("FindARoommate", false)}
-                    >
-                        <h2>Roommate Finder</h2>
-                        <p>Looking for the perfect roommate? Connect with like-minded individuals. Your next great match is just a click away!</p>
-                        {dropdown.FindARoommate && (
-                            <div className="dropdown-menu">
-                                <Link to="/roommate">
-                                    <button className="feature-button">Find a Roommate</button>
-                                </Link>
-                            </div>
-                        )}
-                    </div>
-                    <div
-                        className="feature-card dropdown-card"
-                        onMouseEnter={() => toggleDropdown("lostAndFound", true)}
-                        onMouseLeave={() => toggleDropdown("lostAndFound", false)}
-                    >
-                        <h2>Lost & Found</h2>
-                        <p>Report lost items and find what's been found. Quickly connect with others to recover your belongings or help someone else do the same.</p>
-                        {dropdown.lostAndFound && (
-                            <div className="dropdown-menu">
-                                <Link to="/lost">
-                                    <button className="feature-button">Report Lost Item</button>
-                                </Link>
-                                <Link to="/found">
-                                    <button className="feature-button">Report Found Item</button>
-                                </Link>
-                            </div>
-                        )}
-                    </div>
-                    <div
-                        className="feature-card dropdown-card"
-                        onMouseEnter={() => toggleDropdown("buyAndSell", true)}
-                        onMouseLeave={() => toggleDropdown("buyAndSell", false)}
-                    >
-                        <h2>Buy & Sell Portal</h2>
-                        <p>Find great deals, sell your items. Join our community of shoppers and sellers today!</p>
-                        {dropdown.buyAndSell && (
-                            <div className="dropdown-menu">
-                                <Link to="/buy">
-                                    <button className="feature-button">Buy?</button>
-                                </Link>
-                                <Link to="/sell">
-                                    <button className="feature-button">Post an Ad</button>
-                                </Link>
-                            </div>
-                        )}
-                    </div>
-                </div>
+
+
+          <div className="feature-card dropdown-card"
+            onMouseEnter={() => toggleDropdown("FindARoommate", true)}
+            onMouseLeave={() => toggleDropdown("FindARoommate", false)}>
+            <h2>Roommate Finder</h2>
+            <p>Looking for the perfect roommate? Connect with like-minded individuals. Your next great match is just a click away!</p>
+            {dropdown.FindARoommate && (
+              <div className="dropdown-menu">
+                <Link to="/roommate">
+                  <button className="feature-button">Find a Roommate</button>
+                </Link>
+              </div>
+            )}
+          </div>
+          <div
+            className="feature-card dropdown-card"
+            onMouseEnter={() => toggleDropdown("lostAndFound", true)}
+            onMouseLeave={() => toggleDropdown("lostAndFound", false)}
+          >
+            <h2>Lost & Found</h2>
+            <p>Report lost items and find what's been found. Quickly connect with others to recover your belongings or help someone else do the same.</p>
+            {dropdown.lostAndFound && (
+              <div className="dropdown-menu">
+                <Link to="/lost">
+                  <button className="feature-button">Report Lost Item</button>
+                </Link>
+                <Link to="/found">
+                  <button className="feature-button">Report Found Item</button>
+                </Link>
+              </div>
+            )}
+          </div>
+          <div
+            className="feature-card dropdown-card"
+            onMouseEnter={() => toggleDropdown("buyAndSell", true)}
+            onMouseLeave={() => toggleDropdown("buyAndSell", false)}
+          >
+            <h2>Buy & Sell Portal</h2>
+            <p>Find great deals, sell your items. Join our community of shoppers and sellers today!</p>
+            {dropdown.buyAndSell && (
+              <div className="dropdown-menu">
+                <Link to="/buy">
+                  <button className="feature-button">Buy?</button>
+                </Link>
+                <Link to="/sell">
+                  <button className="feature-button">Post an Ad</button>
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
                 <div className="home-container">
                     <br></br>
                     {/* About Us Section */}
@@ -434,9 +467,9 @@ const Home = () => {
                         </div>
                     </section>
                 </div>
-                <div>
+                {/* <div> */}
                   {/* logic for displaying posts */}
-                {showPosts && (
+                {/* {showPosts && (
                 <div className="posts-container">
                 <h2>Latest Posts:</h2>
 {posts.length > 0 ? (
@@ -452,13 +485,13 @@ const Home = () => {
             <p>{post.itemDescription}</p>
             <p>{post.contactInformation}</p>
         </div>
-    ))
-                ) : (
+    )) */}
+                {/* ) : (
                     <p>No posts found.</p>
                 )}
             </div>
         )}
-    </div>
+    </div> */}
 
             </main>
             <section id="contact" className="home-footer">
@@ -476,3 +509,4 @@ const Home = () => {
 };
 
 export default Home;
+
