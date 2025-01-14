@@ -63,7 +63,8 @@ export const updateUsername = async (req, resp) => {
   
   export const viewProfile = async (req, resp) => {
     try {
-      const emailid = req.params.emailid;
+    const { emailid, username } = req.params;
+
       if (!emailid) {
         return resp.status(400).json({ message: "Email ID is required." });
       }
@@ -71,11 +72,11 @@ export const updateUsername = async (req, resp) => {
       if (!currentUser) {
         return resp.status(404).json({ message: "User not found" });
       }
-      // Remove password from the response
       currentUser.password = undefined;
+      currentUser.username = username;
+      currentUser.emailid = emailid;
       resp.status(200).json(currentUser);
           } catch (error) {
       resp.status(500).json({ error: error.message });
     }
   };
-  

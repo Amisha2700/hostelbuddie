@@ -19,18 +19,18 @@ const Profile = ({ token }) => {
   const [user, setUser] = useState(null);
   const [newUsername, setNewUsername] = useState('');
   const [newPassword, setNewPassword] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);  // Modal is open by default
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:4200/users/view-profile', {
+        const response = await axios.get('http://localhost:4200/users/view-profile/me', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
         setUser(response.data);
-        setNewUsername(response.data.username); 
+        setNewUsername(response.data.username);
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
@@ -39,9 +39,40 @@ const Profile = ({ token }) => {
     fetchUserData();
   }, [token]);
 
-  const handleProfileClick = () => {
-    console.log('Profile button clicked'); // Debug log
-    setIsModalOpen(true);
+  const handleUsernameChange = async () => {
+    try {
+      const response = await axios.put(
+        'http://localhost:4200/users/update-username/me',
+        { newUsername },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      alert(response.data.message);
+      setIsModalOpen(false);
+    } catch (error) {
+      alert(error.response.data.message || 'An error occurred');
+    }
+  };
+
+  const handlePasswordChange = async () => {
+    try {
+      const response = await axios.put(
+        'http://localhost:4200/users/update-password/me',
+        { newPassword },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      alert(response.data.message);
+      setIsModalOpen(false);
+    } catch (error) {
+      alert(error.response.data.message || 'An error occurred');
+    }
   };
 
   const closeModal = () => {
@@ -54,27 +85,7 @@ const Profile = ({ token }) => {
 
   return (
     <div>
-      <div style={{ position: 'fixed', top: '10px', right: '10px', zIndex: 1000 }}>
-        <button
-          onClick={handleProfileClick}
-          style={{
-            width: '50px',
-            height: '50px',
-            borderRadius: '50%',
-            backgroundColor: '#4CAF50',
-            color: 'white',
-            border: 'none',
-            fontSize: '20px',
-            cursor: 'pointer',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <span style={{ fontSize: '24px' }}>👤</span>
-        </button>
-      </div>
-
+      {/* Modal for Profile */}
       {isModalOpen && (
         <div
           style={{
@@ -89,7 +100,14 @@ const Profile = ({ token }) => {
             alignItems: 'center',
           }}
         >
-          <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '10px', width: '400px' }}>
+          <div
+            style={{
+              backgroundColor: 'white',
+              padding: '20px',
+              borderRadius: '10px',
+              width: '400px',
+            }}
+          >
             <h2>Profile</h2>
             <div>
               <p><strong>Username:</strong> {user.username}</p>
@@ -101,7 +119,7 @@ const Profile = ({ token }) => {
                   onChange={(e) => setNewUsername(e.target.value)}
                 />
               </div>
-              <button>Update Username</button>
+              <button onClick={handleUsernameChange}>Update Username</button>
             </div>
             <div>
               <label>New Password</label>
@@ -111,7 +129,7 @@ const Profile = ({ token }) => {
                 onChange={(e) => setNewPassword(e.target.value)}
               />
             </div>
-            <button>Update Password</button>
+            <button onClick={handlePasswordChange}>Update Password</button>
             <button onClick={closeModal}>Close</button>
           </div>
         </div>
