@@ -10,7 +10,7 @@ const Display_sell = () => {
     <div className="display-container">
       {(
         <div className="posts-container">
-          <h2>Items up for Sale :</h2>
+          <h2>Items up for Sale </h2>
           {posts1.length > 0 ? (
             posts1.map((post) => (
               <div key={post._id} className="post-card">
