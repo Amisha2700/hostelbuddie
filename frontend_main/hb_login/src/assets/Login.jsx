@@ -2,6 +2,7 @@ import './Login.css';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 import logo1 from '../assets/hb_logo.png';
 
@@ -14,7 +15,13 @@ function Login() {
     e.preventDefault();
 
     if (!emailid.endsWith('@pec.edu.in')) {
-      alert('Invalid email domain. Only emails ending with @pec.edu.in are allowed.');
+        Swal.fire({
+                      icon: 'Caution',
+                      title: 'Login Failed',
+                      text: 'Please login with PEC ID',
+                      confirmBUttonText: 'Retry',
+              });
+      //alert('Invalid email domain. Only emails ending with @pec.edu.in are allowed.');
       return;
     }
 
@@ -29,14 +36,28 @@ function Login() {
       if (response.data.success) {
         navigate('/home'); // Navigate to home page on successful login
       } else {
-        alert(response.data.message); // Show error message
+       alert(response.data.message); // Show error message
+    
       }
     } catch (err) {
       if (err.response && err.response.status === 401) {
-        alert('Invalid email or password');
+        //alert('Invalid email or password');
+
+                Swal.fire({
+      title: "Invalid Credentials",
+      text: "The login ID or password you entered is incorrect. Please try again.",
+      icon: "warning",
+      confirmButtonText: "Retry",
+    });
       } else {
         console.error('Error:', err);
-        alert('An error occurred. Please try again later.');
+        //alert('An error occurred. Please try again later.');
+                Swal.fire({
+      title: "ERROR",
+      text: "An error occurred. Please try again later.",
+      icon: "warning",
+      confirmButtonText: "Retry",
+    });
       }
     }
   };
