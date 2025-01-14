@@ -156,7 +156,7 @@ const Display = () => {
     <div className="display-container">
       {(
         <div className="posts-container">
-          <h2>Latest Posts:</h2>
+          <h2 style={{ fontFamily: "'Playfair Display', serif" }}>Items Lost</h2>
           {posts.length > 0 ? (
             posts.map((post) => (
               <div key={post._id} className="post-card">
@@ -166,9 +166,17 @@ const Display = () => {
                   className="post-image"
                   style={{ width: "50%", height: "auto", borderRadius: "8px" }} // Custom styling
                 />
-                <h3>{post.itemName}</h3>
-                <p>{post.itemDescription}</p>
-                <p>{post.contactInformation}</p>
+                <div className="post-text">
+                <p>
+                  <span><b>Item Name:</b></span> {post.itemName}
+                </p>
+                <p>
+                  <span><b>Description:</b></span> {post.itemDescription}
+                </p>
+                <p>
+                  <span><b>Contact:</b></span> {post.contactInformation}
+                </p>
+              </div>
               </div>
             ))
           ) : (
