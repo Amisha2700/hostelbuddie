@@ -328,9 +328,16 @@ const Home = () => {
                 <div className="logo-container">
                     <img src={logo} alt="HostelBuddy Logo" className="logo" />
                 </div>
-                <button onClick={fetchPosts} className="animated-display-button">
+{/*                 <button onClick={fetchPosts} className="animated-display-button">
                     Check What's New!
-                </button>
+                </button> */}
+                <div class="animated-bar glow">
+          <label>Check What's New</label>
+          <button onClick="fetchPosts" >Lost</button>
+          <button onClick="fetchPosts" >Found</button>
+          <button onClick="fetchPosts" >Buy</button>
+          <button onClick="fetchPosts" >Sell</button>
+        </div>
                 <nav className="navbar">
                     <ul>
                         <li><ScrollLink to="features" smooth={true} duration={500}>Features</ScrollLink></li>
