@@ -258,6 +258,7 @@ import "./testimonials.css";
 import logo from '../assets/hb_logo.png';
 import extra from '../assets/extra.png';
 import main from './Main_bg.png';
+import Profile from '../profile';
 import { useNavigate } from "react-router-dom";
 const Home = () => {
     const [dropdown, setDropdown] = useState({ lostAndFound: false, buyAndSell: false });
