@@ -7,6 +7,7 @@ const Buy = () => {
     itemDescription: '',
     contactInfo: '',
     itemImage: null,
+    price: ''
   });
 
   const handleChange = (e) => {
@@ -34,6 +35,7 @@ const Buy = () => {
       itemDescription: '',
       contactInfo: '',
       itemImage: null,
+      price: ''
     });
   };
 
@@ -82,6 +84,20 @@ const Buy = () => {
               required
               className="input"
               placeholder="Enter your email or phone number"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="price" className="label">Price:</label>
+            <input
+              type="number"
+              id="price"
+              name="price"
+              value={formData.price}
+              onChange={handleChange}
+              required
+              className="input"
+              placeholder="Enter the price of the item"
             />
           </div>
 
