@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, rgba(85, 37, 130, 0.8), rgba(42, 245, 152, 0.8));
+    background: url(Color1.png);
     font-family: 'Poppins', sans-serif;
     color: #ffffff;
     padding: 20px;
