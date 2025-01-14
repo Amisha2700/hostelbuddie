@@ -333,10 +333,10 @@ const Home = () => {
                 </button> */}
                 <div class="animated-bar glow">
           <label>Check What's New</label>
-          <button onClick="fetchPosts" >Lost</button>
-          <button onClick="fetchPosts" >Found</button>
-          <button onClick="fetchPosts" >Buy</button>
-          <button onClick="fetchPosts" >Sell</button>
+          <button onClick={fetchPosts} >Lost</button>
+          <button onClick={fetchPosts} >Found</button>
+          <button onClick={fetchPosts} >Buy</button>
+          <button onClick={fetchPosts} >Sell</button>
         </div>
                 <nav className="navbar">
                     <ul>
