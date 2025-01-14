@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Forms.css';
-
+import axios from 'axios';
 const Sell = () => {
   const [formData, setFormData] = useState({
     itemName: '',
     itemDescription: '',
     contactInfo: '',
     itemImage: null,
-     price: ''
+    price: 0,
   });
+
+  const fileInputRef = useRef(null); // Ref for file input
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,9 +27,35 @@ const Sell = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log('Sell Form Submitted', formData);
+    try {
+      const data = new FormData();
+      data.append('itemName', formData.itemName);
+      data.append('itemDescription', formData.itemDescription);
+      data.append('price', formData.price);
+      data.append('contactInformation', formData.contactInfo);
+      data.append('picturepath', formData.itemImage);
+      const email = localStorage.getItem('emailid');
+      data.append('emailid', email);
+      console.log('Token:', localStorage.getItem('generatetoken'));
+
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${localStorage.getItem('generatetoken')}`, // Include a token if your `verify` middleware requires authentication
+        },
+      };
+
+      const response = await axios.post(
+        'http://localhost:4200/posts/buy-sell/newSellPosts',
+        data,
+        config
+      );
+
+      console.log('Post created successfully:', response.data);
+    // Log the form data
+    //console.log('Sell Form Submitted', formData);
 
     // Reset form fields
     setFormData({
@@ -35,9 +63,17 @@ const Sell = () => {
       itemDescription: '',
       contactInfo: '',
       itemImage: null,
-       price: ''
+      price:0,
     });
+  }catch(error){
+    console.error('Error creating post:', error.response ? error.response.data : error.message);
+  }
   };
+  //   // Reset file input manually
+  //   if (fileInputRef.current) {
+  //     fileInputRef.current.value = null;
+  //   }
+  // };
 
   return (
     <div className="container">
@@ -86,6 +122,7 @@ const Sell = () => {
               placeholder="Enter your email or phone number"
             />
           </div>
+
           <div className="form-group">
             <label htmlFor="price" className="label">Price:</label>
             <input
@@ -106,6 +143,7 @@ const Sell = () => {
               type="file"
               id="itemImage"
               name="itemImage"
+              ref={fileInputRef} // Attach ref to input
               onChange={handleFileChange}
               className="file-input"
             />

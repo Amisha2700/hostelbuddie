@@ -11,7 +11,7 @@ import Roommate from './roommate.jsx';
 import MatchesPage from './match.jsx';
 // import Profile from './Profile.jsx';
 import Display from "./assets/display.jsx";
-
+import Display1 from "./assets/display1.jsx";
 function App() {
   return (
     <Router>
@@ -28,6 +28,7 @@ function App() {
           <Route path="/found" element={<Found/>} />
           <Route path="/match" element={<MatchesPage/>} />
           <Route path="/display" element={<Display />} />
+          <Route path="/display1" element={<Display1 />} />
         </Routes>
       </div>
     </Router>
