@@ -423,18 +423,23 @@ const Roommate = () => {
 
         <button
         onClick={() => {
-           if (!formFilled) {
-            alert('Please fill the form first!');
-          } else if (!name.trim()) {
+          //  if (!formFilled) {
+          //   alert('Please fill the form first!');
+          // } 
+           if (!name.trim()) {
             alert('Please enter your name!');
           } else {
       generateMatches();
        }
       }}
-     style={{
-       backgroundColor: formFilled && name.trim() ? '#00b7b8' : '#bbb',
-       cursor: formFilled && name.trim() ? 'pointer' : 'not-allowed',
-     }}
+    //  style={{
+    //    backgroundColor: formFilled && name.trim() ? '#00b7b8' : '#bbb',
+    //    cursor: formFilled && name.trim() ? 'pointer' : 'not-allowed',
+    //  }}
+    style={{
+      backgroundColor: name.trim() ? '#00b7b8' : '#bbb',
+      cursor: formFilled && name.trim() ? 'pointer' : 'not-allowed',
+    }}
 >
     {loading ? 'Generating Matches...' : 'Generate Matches'}
 

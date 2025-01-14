@@ -1,4 +1,4 @@
-import posts from "../models/posts_lost_found.js";
+import posts from "../models/posts_lost.js";
 import users from "../models/users.js";
 import express from "express"
 const app=express();

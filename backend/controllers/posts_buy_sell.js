@@ -1,4 +1,4 @@
-import posts from "../models/posts_buy_sell.js";
+import posts from "../models/posts_buy.js";
 import users from "../models/users.js";
 
 
