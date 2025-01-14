@@ -273,7 +273,7 @@ const Home = () => {
 
     const fetchPosts = async () => {
       try {
-        const response = await fetch("http://localhost:4200/posts/lost-found/", {
+        const response = await fetch("http://localhost:4200/posts/lost-found/found", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("generatetoken")}`, // Replace with your actual token
