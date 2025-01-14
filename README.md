@@ -1,4 +1,4 @@
-# HostelBuddie - Under Progress
+# HostelBuddie 
 
 HostelBuddie is a portal application designed to address various hostel-related issues. 
 The project aims to provide features such as roommate finder using machine learning algorithms, lost-and-found portals, and buy/sell platforms for academic materials.
