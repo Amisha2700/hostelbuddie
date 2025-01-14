@@ -615,7 +615,7 @@ CSS FOR THE BUTTONS UNDER 2 FEATURES */
 
 .animated-bar button:hover {
   transform: scale(1.1);
-  background: #d8574a;
+  background: #8a4ad8;
 }
 
 .animated-bar button:active {
