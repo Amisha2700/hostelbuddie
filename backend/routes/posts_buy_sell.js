@@ -2,12 +2,13 @@ import express from "express";
 import { createPost,readFeed,readSpec,update,deletePost } from "../controllers/posts_buy.js";
 import { createSellPost,readSellFeed,readSellSpec,updateSell,deletePostSell } from "../controllers/posts_sell.js";
 import {verify}  from "../middlewares/auth.js";
+import { upload,cloudinaryFile } from '../middlewares/cloudinary.js';
 
 const router = express.Router();
 
 //buy
 //creation
-router.post("/newBuyPosts",verify,createPost);
+router.post("/newBuyPosts",verify,upload,cloudinaryFile,createPost);
 
 //finding
 router.get("/buy",verify,readFeed); //feed
@@ -22,7 +23,7 @@ router.delete("/delete_buy/:postid",verify,deletePost)
 
 //sell
 //creation
-router.post("/newSellPosts",verify,createSellPost);
+router.post("/newSellPosts",verify,upload,cloudinaryFile,createSellPost);
 
 //finding
 router.get("/Sell",verify,readSellFeed); //feed
