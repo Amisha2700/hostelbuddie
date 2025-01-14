@@ -44,7 +44,7 @@ export const createPost = async (req, res)=>{
 //READ/RETRIEVE POSTS
 export const readFeed = async(req,res)=>{
     try{
-        const post = await posts.findOne();
+        const post = await posts.find();
         return res.status(200).json(post);
     }
 

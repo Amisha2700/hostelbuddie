@@ -10,7 +10,7 @@ const Sell = () => {
     price: 0,
   });
 
-  const fileInputRef = useRef(null); // Ref for file input
+  //const fileInputRef = useRef(null); // Ref for file input
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -53,9 +53,9 @@ const Sell = () => {
         config
       );
 
-      console.log('Post created successfully:', response.data);
+    console.log('Post created successfully:', response.data);
     // Log the form data
-    //console.log('Sell Form Submitted', formData);
+    console.log('Sell Form Submitted', formData);
 
     // Reset form fields
     setFormData({
@@ -143,7 +143,7 @@ const Sell = () => {
               type="file"
               id="itemImage"
               name="itemImage"
-              ref={fileInputRef} // Attach ref to input
+              //ref={fileInputRef} // Attach ref to input
               onChange={handleFileChange}
               className="file-input"
             />

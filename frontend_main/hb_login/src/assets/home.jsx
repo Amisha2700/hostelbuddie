@@ -262,6 +262,7 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
     const [dropdown, setDropdown] = useState({ lostAndFound: false, buyAndSell: false });
     const [posts, setPosts] = useState([]); // State to store fetched posts
+    const [posts1, setPosts1] = useState([]); // State to store fetched posts
     //const [showPosts, setShowPosts] = useState(false); // State to toggle posts display
     const navigate = useNavigate();
     const toggleDropdown = (menu, isOpen) => {
@@ -327,8 +328,8 @@ const Home = () => {
         }
         const data = await response.json();
         console.log(data);
-        setPosts(data);
-        navigate("/display1", { state: { posts: data } });
+        setPosts1(data);
+        navigate("/display1", { state: { posts1: data } });
         //setShowPosts(true); // Show the posts after fetching
       } catch (error) {
         console.error("Error fetching posts:", error.message);
@@ -348,8 +349,8 @@ const Home = () => {
         }
         const data = await response.json();
         console.log(data);
-        setPosts(data);
-        navigate("/display1", { state: { posts: data } });
+        setPosts1(data);
+        navigate("/display1", { state: { posts1: data } });
         //setShowPosts(true); // Show the posts after fetching
       } catch (error) {
         console.error("Error fetching posts:", error.message);

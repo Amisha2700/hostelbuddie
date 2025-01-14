@@ -1,18 +1,18 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import "./display1.css"; 
-const Display = () => {
+const Display1 = () => {
   const location = useLocation();
   //console.log(location.state);
-  const { posts } = location.state || { posts: [] };
+  const { posts1 } = location.state || { posts1: [] };
   
   return (
     <div className="display-container">
       {(
         <div className="posts-container">
           <h2>Latest Posts:</h2>
-          {posts.length > 0 ? (
-            posts.map((post) => (
+          {posts1.length > 0 ? (
+            posts1.map((post) => (
               <div key={post._id} className="post-card">
                 <img
                   src={post.picturepath}
@@ -35,4 +35,4 @@ const Display = () => {
   );
 };
 
-export default Display;
+export default Display1;

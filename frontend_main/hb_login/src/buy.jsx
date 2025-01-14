@@ -7,7 +7,7 @@ const Buy = () => {
     itemDescription: '',
     contactInfo: '',
     itemImage: null,
-    price: ''
+    price: 0
   });
 
   const handleChange = (e) => {
@@ -35,7 +35,7 @@ const Buy = () => {
       itemDescription: '',
       contactInfo: '',
       itemImage: null,
-      price: ''
+      price: 0
     });
   };
 
