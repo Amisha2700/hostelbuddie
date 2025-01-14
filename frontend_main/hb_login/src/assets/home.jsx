@@ -400,7 +400,7 @@ const Home = () => {
     
         // Store the fetched profile data in localStorage
         localStorage.setItem('profileData', JSON.stringify(data));
-    
+        console.log(localStorage.getItem('profileData'))
         // Navigate to the profile page
         navigate('/profile');
       } catch (error) {

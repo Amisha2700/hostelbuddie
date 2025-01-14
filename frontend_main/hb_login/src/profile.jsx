@@ -159,7 +159,7 @@ import React, { useState, useEffect } from 'react';
 const Profile = () => {
   const [profileData, setProfileData] = useState({
     username: '',
-    email: '',
+    emailid: '',
     password: '',
   });
 
@@ -182,7 +182,7 @@ const Profile = () => {
 
         <div style={styles.formGroup}>
           <label style={styles.label}>Email:</label>
-          <p style={styles.profileValue}>{profileData.email || 'Not available'}</p>
+          <p style={styles.profileValue}>{profileData.emailid || 'Not available'}</p>
         </div>
 
         <div style={styles.formGroup}>
