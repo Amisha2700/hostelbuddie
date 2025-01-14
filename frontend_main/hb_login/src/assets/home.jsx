@@ -260,6 +260,7 @@ import extra from '../assets/extra.png';
 import main from './Main_bg.png';
 import Profile from '../profile';
 import { useNavigate } from "react-router-dom";
+import axios from "axios"
 const Home = () => {
     const [dropdown, setDropdown] = useState({ lostAndFound: false, buyAndSell: false });
     const [posts, setPosts] = useState([]); // State to store fetched posts
@@ -359,7 +360,8 @@ const Home = () => {
     };
     const fetchProfile=async()=>{
       try {
-        const response = await fetch("http://localhost:4200/users/view-profile/me", {
+        const email=localStorage.getItem('emailid');
+        const response = await fetch(`http://localhost:4200/users/view-profile/${email}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("generatetoken")}`, // Replace with your actual token

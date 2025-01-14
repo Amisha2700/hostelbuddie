@@ -25,8 +25,9 @@ const Profile = ({ token }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       setLoading(true);
+      const email=localStorage.getItem('emailid'); 
       try {
-        const response = await axios.get('http://localhost:4200/users/view-profile', {
+        const response = await axios.get(`http://localhost:4200/users/view-profile${email}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
