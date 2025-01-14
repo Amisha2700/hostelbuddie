@@ -357,6 +357,27 @@ const Home = () => {
         console.error("Error fetching posts:", error.message);
       }
     };
+    const fetchProfile=async()=>{
+      try {
+        const response = await fetch("http://localhost:4200/users/view-profile/me", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("generatetoken")}`, // Replace with your actual token
+            "Content-Type": "application/json",
+          },
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log(data);
+        setPosts1(data);
+        navigate("/profile", { state: { posts1: data } });
+        //setShowPosts(true); // Show the posts after fetching
+      } catch (error) {
+        console.error("Error fetching posts:", error.message);
+      }
+    };
 // const Home = () => {
 //   const [dropdown, setDropdown] = useState({ lostAndFound: false, buyAndSell: false });
 //   const [posts, setPosts] = useState([]); // State to store fetched posts
@@ -409,7 +430,7 @@ const Home = () => {
                         <li><ScrollLink to="about" smooth={true} duration={500}>About Us</ScrollLink></li>
                         <li><ScrollLink to="testimonials" smooth={true} duration={500}>Testimonials</ScrollLink></li>
                         <li><ScrollLink to="contact" smooth={true} duration={500}>Contact Us</ScrollLink></li>
-                         <li><button> Profile </button></li>
+                         <li><button onClick={fetchProfile}> Profile </button></li>
                     </ul>
                 </nav>
                 <div className="display-button"></div>
