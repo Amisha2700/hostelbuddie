@@ -34,6 +34,14 @@ function Login() {
       console.log('Generated Token:', localStorage.getItem('generatetoken'));
 
       if (response.data.success) {
+
+        Swal.fire({
+        title: 'Login Successful!',
+        text: 'Welcome back to your dashboard.',
+        icon: 'success',
+        confirmButtonText: 'Continue',
+        timer: 2000 // Auto close after 2 seconds
+      });
         navigate('/home'); // Navigate to home page on successful login
       } else {
        alert(response.data.message); // Show error message
