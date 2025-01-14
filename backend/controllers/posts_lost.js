@@ -4,7 +4,7 @@ import express from "express"
 const app=express();
 app.use(express.json())
 //CREATE POST
-export const makePost=async(req,resp)=>{
+export const makeLostPost=async(req,resp)=>{
     try{
         const {emailid,itemName,itemDescription,contactInformation,picturepath}=req.body;
         const pictureUrl = picturepath; //the cloudinary url of the image uploaded
@@ -32,7 +32,7 @@ export const makePost=async(req,resp)=>{
 
 //READ POSTS
 //feed
-export const readFeed=async(req,resp)=>{
+export const readLostFeed=async(req,resp)=>{
     try{
         const post=await posts.find();
         resp.status(200).json(post);
@@ -44,7 +44,7 @@ export const readFeed=async(req,resp)=>{
 };
 
 //specific user
-export const readSpecific=async(req,resp)=>{
+export const readLostSpecific=async(req,resp)=>{
     try{
         const id=req.params.postid;
         const post=await posts.find({_id:id});
@@ -56,7 +56,7 @@ export const readSpecific=async(req,resp)=>{
 };
 
 //UPDATE POSTS
-export const update=async(req,resp)=>{
+export const updateLost=async(req,resp)=>{
     try{
         const id=req.params.postid;
         const {username,comment}=req.body;
@@ -76,7 +76,7 @@ export const update=async(req,resp)=>{
 };
 
 //DELETION ONCE MARKED FOUND
-export const deletePost=async(req,resp)=>{
+export const deleteLostPost=async(req,resp)=>{
     try{
         const postid=req.params.postid;
         const result=await posts.findOne({_id:postid});

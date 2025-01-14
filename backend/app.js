@@ -53,15 +53,15 @@ app.use("/posts/buy-sell", buySellRoutes);
 //     }
 // })
 
-// mongoose.connect(process.env.MONGO_URL)
-// .then(()=>{
-//     console.log("Database Connected successfully!");
-//     app.listen(PORT,()=>console.log(`Running on port ${PORT}`));
-// })
-// .catch((error)=>{
-//     console.error("Database connection failed ",error.message);
-//     process.exit(1);//exit if the database is not connected
-// });
+mongoose.connect(process.env.MONGO_URL)
+.then(()=>{
+    console.log("Database Connected successfully!");
+    app.listen(PORT,()=>console.log(`Running on port ${PORT}`));
+})
+.catch((error)=>{
+    console.error("Database connection failed ",error.message);
+    process.exit(1);//exit if the database is not connected
+});
 
 //to run db   
 // mongoose.connect("mongodb+srv://your username:password here@learning.cim4t.mongodb.net/?retryWrites=true&w=majority&appName=learning")

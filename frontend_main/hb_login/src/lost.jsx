@@ -44,7 +44,7 @@ const Lost = () => {
       };
 
       const response = await axios.post(
-        'http://localhost:4200/posts/lost-found/newPosts',
+        'http://localhost:4200/posts/lost-found/newLostPosts',
         data,
         config
       );
