@@ -292,6 +292,69 @@ const Home = () => {
         console.error("Error fetching posts:", error.message);
       }
     };
+    const fetchLostPosts = async () => {
+      try {
+        const response = await fetch("http://localhost:4200/posts/lost-found/lost", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("generatetoken")}`, // Replace with your actual token
+            "Content-Type": "application/json",
+          },
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log(data);
+        setPosts(data);
+        navigate("/display", { state: { posts: data } });
+        //setShowPosts(true); // Show the posts after fetching
+      } catch (error) {
+        console.error("Error fetching posts:", error.message);
+      }
+    };
+    const fetchBuyPosts = async () => {
+      try {
+        const response = await fetch("http://localhost:4200/posts/buy-sell/buy", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("generatetoken")}`, // Replace with your actual token
+            "Content-Type": "application/json",
+          },
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log(data);
+        setPosts(data);
+        navigate("/display", { state: { posts: data } });
+        //setShowPosts(true); // Show the posts after fetching
+      } catch (error) {
+        console.error("Error fetching posts:", error.message);
+      }
+    };
+    const fetchSellPosts = async () => {
+      try {
+        const response = await fetch("http://localhost:4200/posts/buy-sell/Sell", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("generatetoken")}`, // Replace with your actual token
+            "Content-Type": "application/json",
+          },
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log(data);
+        setPosts(data);
+        navigate("/display", { state: { posts: data } });
+        //setShowPosts(true); // Show the posts after fetching
+      } catch (error) {
+        console.error("Error fetching posts:", error.message);
+      }
+    };
 // const Home = () => {
 //   const [dropdown, setDropdown] = useState({ lostAndFound: false, buyAndSell: false });
 //   const [posts, setPosts] = useState([]); // State to store fetched posts
@@ -328,9 +391,16 @@ const Home = () => {
                 <div className="logo-container">
                     <img src={logo} alt="HostelBuddy Logo" className="logo" />
                 </div>
-                <button onClick={fetchPosts} className="animated-display-button">
+{/*                 <button onClick={fetchPosts} className="animated-display-button">
                     Check What's New!
-                </button>
+                </button> */}
+                <div class="animated-bar glow">
+          <label>Check What's New</label>
+          <button onClick={fetchLostPosts} >Lost</button>
+          <button onClick={fetchPosts} >Found</button>
+          <button onClick={fetchBuyPosts} >Buy</button>
+          <button onClick={fetchSellPosts} >Sell</button>
+        </div>
                 <nav className="navbar">
                     <ul>
                         <li><ScrollLink to="features" smooth={true} duration={500}>Features</ScrollLink></li>

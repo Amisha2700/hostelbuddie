@@ -346,6 +346,7 @@
 
 
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
 const Roommate = () => {
   const [formFilled, setFormFilled] = useState(false);
@@ -390,11 +391,23 @@ const Roommate = () => {
         setMatches(data);
       } else {
         console.error('API Error:', data);
-        alert(data.error || 'No matches found');
+        //alert(data.error || 'No matches found');
+              Swal.fire({
+                      icon: 'warning',
+                      title: 'Login Failed',
+                      text: 'Please check your username and password and try again.',
+                      confirmBUttonText: 'Retry',
+              });
       }
     } catch (error) {
       console.error('Error fetching matches:', error);
-      alert('There was an error fetching the matches. Please try again.');
+     //alert('There was an error fetching the matches. Please try again.');
+              Swal.fire({
+                      icon: 'warning',
+                      title: 'Login Failed',
+                      text: 'Please check your username and password and try again.',
+                      confirmBUttonText: 'Retry',
+              });
     } finally {
       setLoading(false);
     }
