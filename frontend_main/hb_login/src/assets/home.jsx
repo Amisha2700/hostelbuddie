@@ -476,7 +476,7 @@ const Home = () => {
                 </div> */}
             </header>
             <main className="home-main">
-                <h1 style={{ textAlign: "center", color: "", fontSize: "2.5rem", fontFamily: "'Playfair Display', serif" }}> WHAT WE OFFER ? </h1>
+                <h1 style={{ textAlign: "center", color: "", fontSize: "2.5rem", fontFamily: " 'Poppins', sans-serif " }}> WHAT WE OFFER ? </h1>
                 <div id="features" className="features">
 
 
@@ -564,7 +564,7 @@ const Home = () => {
                     </section>
                     {/* Testimonials Section */}
                     <section id="testimonials">
-                        <h1 style={{ textAlign: "center", color: "white", fontSize: "2.5rem", fontFamily: "'Playfair Display', serif" }}> TESTIMONIALS </h1>
+                        <h1 style={{ textAlign: "center", color: "white", fontSize: "2.5rem", fontFamily: " 'Poppins', sans-serif " }}> TESTIMONIALS </h1>
                         <div className="container">
                             <div className="row">
                                 <div className="card1">
