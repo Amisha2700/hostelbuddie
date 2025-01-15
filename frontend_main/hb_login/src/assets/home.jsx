@@ -448,7 +448,7 @@ const Home = () => {
 {/*                 <button onClick={fetchPosts} className="animated-display-button">
                     Check What's New!
                 </button> */}
-                <div class="animated-bar glow">
+                <div class="animated-bar">
           <label>Check What's New</label>
           <button onClick={fetchLostPosts} >Lost</button>
           <button onClick={fetchPosts} >Found</button>
