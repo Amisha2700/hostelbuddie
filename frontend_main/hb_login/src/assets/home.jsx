@@ -358,14 +358,14 @@ const Home = () => {
         console.error("Error fetching posts:", error.message);
       }
     };
-    // const fetchProfile=async()=>{
+    // const fetchProfile = async () => {
     //   try {
-    //     const email=localStorage.getItem('emailid');
+    //     const email = localStorage.getItem('emailid');
     //     const response = await fetch(`http://localhost:4200/users/view-profile/${email}`, {
-    //       method: "GET",
+    //       method: 'GET',
     //       headers: {
-    //         Authorization: `Bearer ${localStorage.getItem("generatetoken")}`, // Replace with your actual token
-    //         "Content-Type": "application/json",
+    //         Authorization: `Bearer ${localStorage.getItem('generatetoken')}`,
+    //         'Content-Type': 'application/json',
     //       },
     //     });
     //     if (!response.ok) {
@@ -374,21 +374,25 @@ const Home = () => {
     //     const data = await response.json();
     //     console.log(data);
     //     setPosts1(data);
-    //     navigate("/profile", { state: { postsPro: data } });
-    //     //setShowPosts(true); // Show the posts after fetching
+    
+    //     // Store the fetched profile data in localStorage
+    //     localStorage.setItem('profileData', JSON.stringify(data));
+    //     console.log(localStorage.getItem('profileData'))
+    //     // Navigate to the profile page
+    //     navigate('/profile');
     //   } catch (error) {
-    //     console.error("Error fetching posts:", error.message);
+    //     console.error('Error fetching profile:', error.message);
     //   }
     // };
-
-    const fetchProfile = async () => {
+    
+    const fetchProfile=async()=>{
       try {
-        const email = localStorage.getItem('emailid');
+        const email=localStorage.getItem('emailid');
         const response = await fetch(`http://localhost:4200/users/view-profile/${email}`, {
-          method: 'GET',
+          method: "GET",
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('generatetoken')}`,
-            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem("generatetoken")}`, // Replace with your actual token
+            "Content-Type": "application/json",
           },
         });
         if (!response.ok) {
@@ -397,17 +401,13 @@ const Home = () => {
         const data = await response.json();
         console.log(data);
         setPosts1(data);
-    
-        // Store the fetched profile data in localStorage
-        localStorage.setItem('profileData', JSON.stringify(data));
-        console.log(localStorage.getItem('profileData'))
-        // Navigate to the profile page
-        navigate('/profile');
+        navigate("/profile", { state: { userProfile: data } });
+        //setShowPosts(true); // Show the posts after fetching
       } catch (error) {
-        console.error('Error fetching profile:', error.message);
+        console.error("Error fetching posts:", error.message);
       }
     };
-    
+
 
 // const Home = () => {
 //   const [dropdown, setDropdown] = useState({ lostAndFound: false, buyAndSell: false });
