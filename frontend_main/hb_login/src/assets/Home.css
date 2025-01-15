@@ -558,108 +558,63 @@ CSS FOR THE BUTTONS UNDER 2 FEATURES */
   text-align: center;
 }
 
-/* Animated button styling */
-.animated-display-button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 50px;
-  background: url('https://i.pinimg.com/736x/fa/ee/26/faee26748a9a278afba54a8b5e8313aa.jpg') no-repeat center center / cover;
-   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  margin-top: -50px;
-}
-
-.animated-display-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.2);
-  transform: skewX(-45deg);
-  transition: left 0.5s;
-}
-
-.animated-display-button:hover::before {
-  left: 100%;
-}
-
-.animated-display-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-}
-
-
-.posts-container {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-}
-
-.post-card {
-  margin: 10px 0;
-  padding: 15px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
 
 .animated-bar {
+  position: sticky;
+  top: 0px;
+  left: 5px; /* Start from off-screen */
+  background: linear-gradient(135deg, #b08cb2, #9b6cd8); /* Soft lavender gradient */
+  height: 80px;
+  padding: 0px 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 70%;
-  max-width: 800px;
-  background: #34125c;
-  border: 2px solid #34125c;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  padding: 10px 20px;
-  animation: moveBar 20s linear infinite;
+  justify-content: center;
+  border-radius: 40px;
+  font-family: "Poppins", sans-serif;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  animation: slideIn 1s ease-out forwards;
+  z-index: 1000;
 }
 
-@keyframes moveBar {
+@keyframes slideIn {
   0% {
-      transform: translateX(-100%);
+    left: -350px;
   }
   100% {
-      transform: translateX(100%);
+    left: 50px; /* Starts from 50px away from left side */
   }
 }
 
 .animated-bar label {
+  color: white;
+  font-size: 15px;
   font-weight: bold;
-  font-size: 1.2rem;
-  color: #F1B5FF;
+  margin-right: 0px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
 }
 
 .animated-bar button {
-  background: #A698C2;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 3px 35px;
-  font-size: 0.9rem;
+  background-color: #fff;
+  color: #7e4ea3;
+  font-size: 16px;
+  border: 2px solid #7e4ea3;
+  padding: 10px 00px;
+  margin: 0 12px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: transform 0.2s, background 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
 .animated-bar button:hover {
-  transform: scale(1.1);
-  background: #8a4ad8;
+  background-color: #7e4ea3;
+  color: #fff;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.animated-bar button:active {
-  transform: scale(0.95);
+.animated-bar button:focus {
+  outline: none;
 }
-
-
