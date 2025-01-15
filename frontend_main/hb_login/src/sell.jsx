@@ -58,6 +58,13 @@ const Sell = () => {
     console.log('Post created successfully:', response.data);
     // Log the form data
     console.log('Sell Form Submitted', formData);
+      //alert field
+         Swal.fire({
+                      icon: 'Caution',
+                      title: 'Login Failed',
+                      text: 'Please login with PEC ID',
+                      confirmBUttonText: 'Retry',
+              }); 
 
     // Reset form fields
     setFormData({
