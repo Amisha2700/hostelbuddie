@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: url('Color1.png') no-repeat center center/cover;
+  background-size: cover;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Gradient background with transition effect */
+.edit-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, #4a148c, #6a1b9a, #4a148c); /* Gradient effect */
+  background-size: 400% 400%; /* Make the gradient flow */
+  animation: gradientBackground 6s ease infinite; /* Animate the gradient */
+}
+
+/* Define the gradient animation */
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Edit profile container */
+.edit-profile-container {
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.edit-profile-container h1 {
+  font-size: 2rem;
+  background: linear-gradient(to bottom, #641eb9, #8b3cbc, #ca16a9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; /* Make text transparent so that gradient shows */
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-label {
+  font-size: 1rem;
+  color: #6a1b9a;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #1458b8;
+  border-radius: 4px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #c62158;
+}
+
+.password-container {
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle-btn {
+  background-color: transparent;
+  border: none;
+  color: #010a19;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.password-toggle-btn:hover {
+  color: #010a19;
+}
+
+/* Save button with gradient */
+.save-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(45deg, #9c27b0, #6a1b9a); 
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background: linear-gradient(45deg, #9c27b0, #6a1b9a); 
+}
+
+.save-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
