@@ -60,7 +60,7 @@ const Sell = () => {
     console.log('Sell Form Submitted', formData);
       //alert field
          Swal.fire({
-                      icon: 'Success',
+                      icon: 'success',
                       title: 'Post created',
                       text: 'Kindly go back to the home page and check the post.',
                       confirmBUttonText: 'OK',
