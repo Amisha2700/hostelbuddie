@@ -126,6 +126,7 @@
 import React, { useState, useRef } from 'react';
 import './Forms.css';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 const Buy = () => {
   const [formData, setFormData] = useState({
     itemName: '',
@@ -181,6 +182,13 @@ const Buy = () => {
     console.log('Post created successfully:', response.data);
     // Log the form data
     console.log('Buy Form Submitted', formData);
+
+      Swal.fire({
+                      icon: 'success',
+                      title: 'Buy form submitted',
+                      text: 'Kindly go back to the home page and check the post.',
+                      confirmBUttonText: 'OK',
+              }); 
 
     // Reset form fields
     setFormData({
