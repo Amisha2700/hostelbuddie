@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import './Forms.css';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+
 const Sell = () => {
   const [formData, setFormData] = useState({
     itemName: '',
