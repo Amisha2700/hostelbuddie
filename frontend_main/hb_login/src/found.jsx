@@ -160,6 +160,13 @@ const Found = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     console.log('Found Form Submitted', formData);
+
+    Swal.fire({
+                      icon: 'success',
+                      title: 'Form submitted',
+                      text: 'Kindly go back to the home page and check the post.',
+                      confirmBUttonText: 'OK',
+              }); 
     
 
     try {
