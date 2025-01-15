@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Forms.css';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 const Lost = () => {
   const [formData, setFormData] = useState({
     itemName: '',
@@ -27,6 +28,13 @@ const Lost = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     console.log('Lost Form Submitted', formData);
+
+    Swal.fire({
+                      icon: 'success',
+                      title: 'Form Submitted',
+                      text: 'Kindly go back to the home page and check the post.',
+                      confirmBUttonText: 'OK',
+              }); 
 
     try {
       const data = new FormData();
