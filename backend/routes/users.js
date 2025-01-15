@@ -6,9 +6,9 @@ const router=express.Router();
 //route to search using mail id
 router.get("/search/:emailid?",searchUser);
 //route to update password
-router.post("/update-password/:emailid?",updatePassword);
+router.put("/update-password/:emailid?",updatePassword);
 //route to update username
-router.post("/update-username/:emailid?", updateUsername);
+router.put("/update-username/:emailid?", updateUsername);
 // Route to view profile
 router.get("/view-profile/:emailid?", viewProfile);
 
