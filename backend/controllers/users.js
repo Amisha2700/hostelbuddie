@@ -38,9 +38,10 @@ export const updatePassword=async(req,resp)=>{
 export const updateUsername = async (req, resp) => {
     try {
       const emailid = req.params.emailid; // Assuming the emailid is available in the JWT token
-      const { newUsername } = req.body.newUsername;
+      const { newUsername } = req.body;
+      const username = req.params.username;
   
-      if (!newUsername) {
+      if (newUsername==username) {
         return resp.status(400).json({ message: "New username is required." });
       }
       //To check if the new username is already taken
