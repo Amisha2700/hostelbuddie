@@ -225,50 +225,56 @@
 
 // export default Profile;
 
-import React, { useState, useEffect } from "react";
-import "./Profile.css";
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import './profile.css';
 
 const Profile = () => {
-  const [profileData, setProfileData] = useState({
-    username: "",
-    emailid: "",
-    password: "",
-  });
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { userProfile } = location.state || {}; // Get the profile passed through navigation
 
-  useEffect(() => {
-    // Retrieve profile data from localStorage
-    const storedProfileData = localStorage.getItem("profileData");
-    if (storedProfileData) {
-      setProfileData(JSON.parse(storedProfileData)); // Set the profile data if available
-    }
-  }, []); // Empty array ensures it runs once when component mounts
+  // Navigate to the edit profile page
+  const handleEditProfile = () => {
+    navigate('/edit-profile', { state: { userProfile } }); // Passing user profile for editing
+  };
 
   return (
     <div className="profile-container">
       <div className="profile-card">
         <h1 className="profile-title">✨ Your Profile ✨</h1>
-        <div className="profile-form-group">
-          <label className="profile-label">👤 Username:</label>
-          <p className="profile-value">
-            {profileData.username || "Not available"}
-          </p>
-        </div>
 
-        <div className="profile-form-group">
-          <label className="profile-label">📧 Email:</label>
-          <p className="profile-value">
-            {profileData.emailid || "Not available"}
-          </p>
-        </div>
+        {userProfile ? (
+          <div>
+            <div className="profile-form-group">
+              <label className="profile-label">👤 Username:</label>
+              <p className="profile-value">
+                {userProfile.username || 'Not available'}
+              </p>
+            </div>
 
-        <div className="profile-form-group">
-          <label className="profile-label">🔒 Password:</label>
-          <p className="profile-value">********</p> {/* Password is hidden */}
-        </div>
+            <div className="profile-form-group">
+              <label className="profile-label">📧 Email:</label>
+              <p className="profile-value">
+                {userProfile.emailid || 'Not available'}
+              </p>
+            </div>
+
+            <div className="profile-form-group">
+              <label className="profile-label">🔒 Password:</label>
+              <p className="profile-value">********</p> {/* Hide the password */}
+            </div>
+
+            <button onClick={handleEditProfile} className="button">
+              Edit Profile
+            </button>
+          </div>
+        ) : (
+          <p>Loading profile...</p>
+        )}
       </div>
     </div>
   );
 };
 
 export default Profile;
-
