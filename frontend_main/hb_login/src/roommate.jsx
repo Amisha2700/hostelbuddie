@@ -473,6 +473,7 @@ const Roommate = () => {
                 <p>Food Preferences: {match["What are your food preferences?"]}</p>
                 <p>Cleanliness Rating: {match["What would you rate yourself on the scale of 1-5 in cleanliness ?(5-being you clean your room everyday)"]}</p>
                 <p>Night Owl / Early Riser: {match["Are you a night owl or an early riser?"]}</p>
+                <p>PEC ID: {match["PEC ID"]}</p>
               </div>
             ))}
           </div>
