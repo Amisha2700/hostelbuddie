@@ -585,6 +585,7 @@ const Roommate = () => {
     border-radius: 30px;
     cursor: pointer;
     box-shadow: 0 6px 15px rgba(255, 118, 158, 0.4);
+    width: 250px; 
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
   }
 
