@@ -75,7 +75,7 @@ export const updateSell=async(req,res)=>{
         const newComm = { username , comment};
 
         const post = await posts.findById(id)
-        const updated = await posts.findOneandUpdate(
+        const updated = await posts.findOneAndUpdate(
             {_id:id},
             //push the newcomment in the comments array
             { $push: { comments: newComm } }, 
