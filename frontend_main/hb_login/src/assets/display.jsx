@@ -144,28 +144,97 @@
 // export default Portal;
 
 
-import React from "react";
+// import React from "react";
+// import { useLocation } from "react-router-dom";
+// import "./display.css"; 
+// const Display = () => {
+//   const location = useLocation();
+  
+//   //console.log(location.state);
+//   const { posts } = location.state || { posts: [] };
+  
+//   const handleDelete = (postId) => {
+//     const updatedPosts = posts.filter((post) => post._id !== postId);
+//     setPosts(updatedPosts);
+//   };
+//   return (
+//     <div className="display-container">
+//       {(
+//         <div className="posts-container">
+//           <h2 style={{ fontFamily: "'Playfair Display', serif" }}>Items Found</h2>
+//           {posts.length > 0 ? (
+//             posts.map((post) => (
+//               <div key={post._id} className="post-card">
+//               {/* Delete Button */}
+//               <button
+//                 className="delete-button"
+//                 onClick={() => handleDelete(post._id)}
+//               >
+//                 &times;
+//               </button>
+//                  <img
+//                 src={post.picturepath}
+//                 alt={post.itemName}
+//                 className="post-image"
+//               />
+//                 <div className="post-text">
+//                 <p>
+//                   <span><b>Item Name:</b></span> {post.itemName}
+//                 </p>
+//                 <p>
+//                   <span><b>Description:</b></span> {post.itemDescription}
+//                 </p>
+//                 <p>
+//                   <span><b>Contact:</b></span> {post.contactInformation}
+//                 </p>
+//               </div>
+//               </div>
+//             ))
+//           ) : (
+//             <p>No posts found.</p>
+//           )}
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default Display;
+
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import "./display.css"; 
+import "./display.css";
+
 const Display = () => {
   const location = useLocation();
-  //console.log(location.state);
-  const { posts } = location.state || { posts: [] };
-  
+  const { posts: initialPosts } = location.state || { posts: [] };
+  const [posts, setPosts] = useState(initialPosts);
+
+  const handleDelete = (postId) => {
+    const updatedPosts = posts.filter((post) => post._id !== postId);
+    setPosts(updatedPosts);
+  };
+
   return (
     <div className="display-container">
-      {(
-        <div className="posts-container">
-          <h2 style={{ fontFamily: "'Playfair Display', serif" }}>Items Found</h2>
-          {posts.length > 0 ? (
-            posts.map((post) => (
-              <div key={post._id} className="post-card">
-                 <img
+      <div className="posts-container">
+        <h2 style={{ fontFamily: "'Playfair Display', serif" }}>Items Found</h2>
+        {posts.length > 0 ? (
+          posts.map((post) => (
+            <div key={post._id} className="post-card">
+              {/* Delete Button */}
+              <button
+                className="delete-button"
+                onClick={() => handleDelete(post._id)}
+              >
+                &times;
+              </button>
+              <img
                 src={post.picturepath}
                 alt={post.itemName}
                 className="post-image"
               />
-                <div className="post-text">
+              <div className="post-text">
                 <p>
                   <span><b>Item Name:</b></span> {post.itemName}
                 </p>
@@ -176,13 +245,12 @@ const Display = () => {
                   <span><b>Contact:</b></span> {post.contactInformation}
                 </p>
               </div>
-              </div>
-            ))
-          ) : (
-            <p>No posts found.</p>
-          )}
-        </div>
-      )}
+            </div>
+          ))
+        ) : (
+          <p>No posts found.</p>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,12 +1,17 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./display.css"; 
 const Display_lost = () => {
   const location = useLocation();
   //console.log(location.state);
-  const { posts } = location.state || { posts: [] };
+  const { posts: initialPosts } = location.state || { posts: [] };
+    const [posts, setPosts] = useState(initialPosts);
   
+  const handleDelete = (postId) => {
+    const updatedPosts = posts.filter((post) => post._id !== postId);
+    setPosts(updatedPosts);
+  };
   return (
     <div className="display-container">
       {(
@@ -15,6 +20,13 @@ const Display_lost = () => {
           {posts.length > 0 ? (
             posts.map((post) => (
               <div key={post._id} className="post-card">
+                {/* Delete Button */}
+              <button
+                className="delete-button"
+                onClick={() => handleDelete(post._id)}
+              >
+                &times;
+              </button>
                 <img
                   src={post.picturepath}
                   alt={post.itemName}
