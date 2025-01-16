@@ -18,7 +18,6 @@ The project aims to provide features such as roommate finder using machine learn
   - CSS
   - React
   - Vite
-  - Bootstrap(framework)
   - Javascript
   - Node.js
   - Axios
