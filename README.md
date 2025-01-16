@@ -19,7 +19,6 @@ The project aims to provide features such as roommate finder using machine learn
   - React
   - Vite
   - Javascript
-  - Node.js
   - Axios
   - React Router
   
