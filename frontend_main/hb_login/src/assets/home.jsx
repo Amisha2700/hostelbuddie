@@ -476,7 +476,7 @@ const Home = () => {
                 </div> */}
             </header>
             <main className="home-main">
-                <h1 style={{ textAlign: "center", color: "", fontSize: "2.5rem", fontFamily: " 'Poppins', sans-serif " }}> WHAT WE OFFER ? </h1>
+                <h1 style={{ textAlign: "center", color: "black", fontSize: "2.5rem", fontFamily: " 'Poppins', sans-serif " }}> WHAT WE OFFER ? </h1>
                 <div id="features" className="features">
 
 
@@ -541,21 +541,21 @@ const Home = () => {
                                 <div className="about-card">
                                     <img src="https://i.pinimg.com/736x/dd/ac/f1/ddacf13289d443f7425a0460e613560d.jpg" className="card-img-top" alt="About Image 1" />
                                     <div className="card-body">
-                                        <h5 className="card-title">Community</h5>
+                                        <h5 className="card-title" style={{ color: "black" }}>Community</h5>
                                         <p className="card-text">Join a vibrant community of students and make lifelong friends.</p>
                                     </div>
                                 </div>
                                 <div className="about-card">
                                     <img src="https://i.pinimg.com/736x/78/28/41/782841c15fd106e75cc0396345d5552d.jpg" className="card-img-top" alt="About Image 2" />
                                     <div className="card-body">
-                                        <h5 className="card-title">Support</h5>
+                                        <h5 className="card-title" style={{ color: "black" }}>Support</h5>
                                         <p className="card-text">Get the support you need to thrive in your academic and social life.</p>
                                     </div>
                                 </div>
                                 <div className="about-card">
                                     <img src="https://tse4.mm.bing.net/th?id=OIP.GPYArLO5k6RKixE6jqlkcwHaE8&pid=Api&P=0&h=180" className="card-img-top" alt="About Image 3" />
                                     <div className="card-body">
-                                        <h5 className="card-title">Resources</h5>
+                                        <h5 className="card-title" style={{ color: "black" }}>Resources</h5>
                                         <p className="card-text">Access a wealth of resources to help you succeed in your studies and beyond.</p>
                                     </div>
                                 </div>
