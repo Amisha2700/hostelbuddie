@@ -16,7 +16,7 @@ function Login() {
 
     if (!emailid.endsWith('@pec.edu.in')) {
         Swal.fire({
-                      icon: 'Caution',
+                      icon: 'warning',
                       title: 'Login Failed',
                       text: 'Please login with PEC ID',
                       confirmBUttonText: 'Retry',
