@@ -421,7 +421,7 @@ const Roommate = () => {
         <p>Find the perfect roommate with our advanced AI & ML algorithms! ✨</p>
       </header>
       <div className="text-content">
-        <p>Looking for someone who matches your vibe? 🤝 Whether you're a night owl or an early bird, our platform has got you covered!</p>
+        <p style={{ color: "black" }}>Looking for someone who matches your vibe? 🤝 Whether you're a night owl or an early bird, our platform has got you covered!</p>
       </div>
 
       <div className="button-container">
