@@ -15,6 +15,7 @@ export const makeLostPost=async(req,resp)=>{
         }
         
         const newpost=new posts({
+            emailid,
            picturepath:pictureUrl, //cloudinary url saved to post
             itemName,
             itemDescription,
@@ -22,6 +23,7 @@ export const makeLostPost=async(req,resp)=>{
             comments:[]
         });
         //post saved to mongodb
+        newpost.postid=newpost._id.toString();
         await newpost.save();
         return resp.status(201).json(newpost);
     }

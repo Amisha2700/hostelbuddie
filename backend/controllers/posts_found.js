@@ -15,12 +15,14 @@ export const makeFoundPost=async(req,resp)=>{
         }
         
         const newpost=new posts({
+            emailid,
            picturepath:pictureUrl, //cloudinary url saved to post
             itemName,
             itemDescription,
             contactInformation,
             comments:[]
         });
+        newpost.postid=newpost._id.toString();
         //post saved to mongodb
         await newpost.save();
         return resp.status(201).json(newpost);

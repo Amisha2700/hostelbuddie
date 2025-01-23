@@ -22,6 +22,7 @@ export const createSellPost = async (req, res)=>{
           }
         
         const newPost = new posts({
+            emailid,
             picturepath:pictureUrl,
             itemName,
             itemDescription,
@@ -29,7 +30,7 @@ export const createSellPost = async (req, res)=>{
             contactInformation,
             comments:[]
         })
-
+        newPost.postid=newPost._id.toString();
         await newPost.save(); 
 
         return res.status(201).json(newPost);
