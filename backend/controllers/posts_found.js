@@ -81,11 +81,18 @@ export const updateFound=async(req,resp)=>{
 export const deleteFoundPost=async(req,resp)=>{
     try{
         const postid=req.params.postid;
+        const email_local=req.body.emailid;
         const result=await posts.findOne({_id:postid});
         if(!result){
             return resp.status(404).send("This post doesn't exist");
         }
         else{
+            console.log(result);
+            const email_actual=result.emailid;
+            console.log(email_actual);
+            console.log(email_local);
+            if(email_actual!==email_local)
+                return resp.status(403).send("You didn't create this post! Can't delete");
             const deleted=await posts.deleteOne({_id:postid});
             if(deleted.deletedCount===1)
                 return resp.status(200).send("Post has been deleted successfully!");
@@ -95,4 +102,5 @@ export const deleteFoundPost=async(req,resp)=>{
         resp.status(500).send({"error":error.message});
     }
 }
+
 
