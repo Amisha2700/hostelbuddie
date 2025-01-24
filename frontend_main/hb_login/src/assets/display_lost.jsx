@@ -8,10 +8,35 @@ const Display_lost = () => {
   const { posts: initialPosts } = location.state || { posts: [] };
     const [posts, setPosts] = useState(initialPosts);
   
-  const handleDelete = (postId) => {
-    const updatedPosts = posts.filter((post) => post._id !== postId);
-    setPosts(updatedPosts);
-  };
+  const handleDelete = async(postid) => {
+    // const updatedPosts = posts.filter((post) => post._id !== postId);
+    // setPosts(updatedPosts);
+    const emailid=localStorage.getItem('emailid');
+    try{
+      const response=await fetch(`http://localhost:4200/posts/lost-found/delete_lost/${postid}`,{
+        method: "DELETE",
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("generatetoken")}`, // Replace with your actual token
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({emailid}),
+        });
+        if (response.ok) {
+          setPosts((prevPosts) => prevPosts.filter((post) => post._id !== postid));
+      alert("Post deleted successfully");
+         
+        } else if (response.status === 403) {
+          // If the backend returns 403 (Forbidden), it means the user didn't create the post
+          const errorMessage = await response.text(); // You can also use response.json() if it's a JSON response
+          alert(errorMessage || "You didn't create this post!");
+        } else {
+          alert("Failed to delete post");
+        }
+      } catch (error) {
+        console.error("Error deleting post:", error);
+        alert("Error deleting post");
+      }
+    };
   return (
     <div className="display-container">
       {(
