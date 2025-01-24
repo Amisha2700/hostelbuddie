@@ -95,14 +95,20 @@ export const updateSell=async(req,res)=>{
 //DELETE POST
 export const deletePostSell = async(req,res)=>{
     try{
-        const id = posts.params.id;
+        const id = req.params.postid;
+        const email_local=req.body.emailid;
 
         const post = await posts.findById(id);
-
+        console.log(post);
         if(!post){
-            return res.status(404).json("Post not found! ", error);
+            return res.status(404).send("post not found");
         }
         else{
+            const email_actual=post.emailid;
+            console.log(email_actual);
+            console.log(email_local);
+            if(email_actual!==email_local)
+                return res.status(403).send("You didn't create this post! Can't delete");
             const to_delete = await posts.deleteOne({_id:id});
 
             if(to_delete.deletedCount === 1){
@@ -111,7 +117,7 @@ export const deletePostSell = async(req,res)=>{
         }
     }
 
-    catch{error}{
-        return res.status(404).json("Error deleting the post: " , error);
+    catch(error){
+        return res.status(500).json({"Error deleting the post " : error});
     }
 };
