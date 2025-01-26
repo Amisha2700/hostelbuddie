@@ -9,6 +9,12 @@ const itemSchema = new mongoose.Schema(
     // username:{
     //   type:String,
     //   required:true},
+    postid:String,
+
+    emailid:{
+      type:String,
+      required:true
+    },
      
     picturepath:String,
 

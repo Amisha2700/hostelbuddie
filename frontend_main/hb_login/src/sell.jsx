@@ -74,10 +74,23 @@ const Sell = () => {
       itemImage: null,
       price:0,
     });
-  }catch(error){
-    console.error('Error creating post:', error.response ? error.response.data : error.message);
-  }
+    refetchPosts();
+    } catch (error) {
+      console.error('Error creating post:', error.response ? error.response.data : error.message);
+    }
   };
+
+  const refetchPosts = async () => {
+    try {
+      const response = await axios.get('http://localhost:4200/posts/buy-sell');
+      // Assuming you have a way to update the posts in the same component
+      // If you're using a global state or context, you'd update it here.
+      console.log('Fetched posts:', response.data);
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    }
+  };
+  
   //   // Reset file input manually
   //   if (fileInputRef.current) {
   //     fileInputRef.current.value = null;

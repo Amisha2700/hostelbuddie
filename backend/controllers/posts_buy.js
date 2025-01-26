@@ -22,6 +22,7 @@ export const createPost = async (req, res)=>{
           }
         
         const newPost = new posts({
+            emailid,
             picturepath:pictureUrl,
             itemName,
             itemDescription,
@@ -29,7 +30,7 @@ export const createPost = async (req, res)=>{
             contactInformation,
             comments:[]
         })
-
+        newPost.postid=newPost._id.toString();
         await newPost.save(); 
 
         return res.status(201).json(newPost);
@@ -92,25 +93,27 @@ export const update=async(req,res)=>{
 
 
 //DELETE POST
-export const deletePost = async(req,res)=>{
+export const deletePost = async(req,resp)=>{
     try{
-        const id = posts.params.id;
-
-        const post = await posts.findById(id);
-
-        if(!post){
-            return res.status(404).json("Post not found! ", error);
+        const postid=req.params.postid;
+        const email_local=req.body.emailid;
+        const result=await posts.findOne({_id:postid});
+        if(!result){
+            return resp.status(404).send("This post doesn't exist");
         }
         else{
-            const to_delete = await posts.deleteOne({_id:id});
-
-            if(to_delete.deletedCount === 1){
-                return res.status(200).send("Post deleted successfully!")
-            }
+            console.log(result);
+            const email_actual=result.emailid;
+            console.log(email_actual);
+            console.log(email_local);
+            if(email_actual!==email_local)
+                return resp.status(403).send("You didn't create this post! Can't delete");
+            const deleted=await posts.deleteOne({_id:postid});
+            if(deleted.deletedCount===1)
+                return resp.status(200).send("Post has been deleted successfully!");
         }
     }
-
-    catch{error}{
-        return res.status(404).json("Error deleting the post: " , error);
+    catch(error){
+        resp.status(500).send({"error":error.message});
     }
 };
