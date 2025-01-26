@@ -18,6 +18,8 @@ const schema=new mongoose.Schema({
         type:String,
         required:true,
     },
+    resetToken:{type:String} ,
+    resetTokenExpiry: {type:Date}  
     },
     {timestamps:true}//to add "created" and "updated" automatically 
 );

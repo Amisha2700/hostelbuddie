@@ -1,5 +1,5 @@
 import express from "express";
-import {searchUser,updatePassword, updateUsername, viewProfile} from "../controllers/users.js";
+import {searchUser,updatePassword, updateUsername, viewProfile,forgot_password, resetPassword} from "../controllers/users.js";
 
 const router=express.Router();
 
@@ -11,5 +11,9 @@ router.put("/update-password/:emailid?",updatePassword);
 router.put("/update-username/:emailid?", updateUsername);
 // Route to view profile
 router.get("/view-profile/:emailid?", viewProfile);
+//to send forgot pass mail
+router.post('/forgot-password', forgot_password);
+//to set the password
+router.post('/reset-password', resetPassword);
 
 export default router;
