@@ -347,12 +347,14 @@
 
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 
 const Roommate = () => {
   const [formFilled, setFormFilled] = useState(false);
   const [matches, setMatches] = useState([]);
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState('');
+  const navigate = useNavigate();
 
   const openGoogleForm = () => {
     window.open('https://forms.gle/P9JkTvxBuzajeTSF9', '_blank');
@@ -363,6 +365,11 @@ const Roommate = () => {
     setName(e.target.value);
   };
 
+  const handleContact=(e)=>{
+    navigate(`/chatbox/${e["PEC ID"]}`,{
+      state:{username:e["Name"]},
+    });
+  }
   const generateMatches = async () => {
     // if (!formFilled) {
     //   alert('Please fill the form first!');
@@ -474,6 +481,7 @@ const Roommate = () => {
                 <p>Cleanliness Rating: {match["What would you rate yourself on the scale of 1-5 in cleanliness ?(5-being you clean your room everyday)"]}</p>
                 <p>Night Owl / Early Riser: {match["Are you a night owl or an early riser?"]}</p>
                 <p>PEC ID: {match["PEC ID"]}</p>
+                <button onClick={() => handleContact(match)}>Contact</button>
               </div>
             ))}
           </div>

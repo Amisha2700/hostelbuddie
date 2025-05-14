@@ -3,10 +3,18 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import multer from "multer";
 import cors from 'cors';
+import http from "http";
+import {Server} from "socket.io";
 
 const app=express();
 app.use(cors());
-
+const server=http.createServer(app);
+const io=new Server(server,{
+    cors: {
+    origin: "http://localhost:5173", // frontend origin
+    methods: ["GET", "POST"]
+  }
+});
 dotenv.config();//to load the environment variables
 
 // const PORT=process.env.PORT;
@@ -15,6 +23,44 @@ const PORT=4200;
 
 
 app.use(express.json());
+
+const users = {};
+
+io.on("connection", (socket) => {
+  console.log(`🔌 New socket connected: ${socket.id}`);
+
+  // Register the user's email on connection
+  socket.on("register_user", (email) => {
+    users[email] = socket.id;
+    console.log(`✅ Registered: ${email} with socket ${socket.id}`);
+  });
+
+  // Handle message sending
+  socket.on("send_message", (data) => {
+    const { to, from, message } = data;
+    console.log(`📨 Message from ${from} to ${to}: ${message}`);
+
+    const recipientSocket = users[to];
+
+    if (recipientSocket) {
+      io.to(recipientSocket).emit("receive_message", data);
+    }
+
+    // Also emit back to sender for their local display
+    socket.emit("receive_message", data);
+  });
+
+  socket.on("disconnect", () => {
+    // Remove user from map when disconnected
+    for (const [email, id] of Object.entries(users)) {
+      if (id === socket.id) {
+        delete users[email];
+        console.log(`❌ Disconnected: ${email}`);
+        break;
+      }
+    }
+  });
+});
 
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
@@ -56,7 +102,7 @@ app.use("/posts/buy-sell", buySellRoutes);
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
     console.log("Database Connected successfully!");
-    app.listen(PORT,()=>console.log(`Running on port ${PORT}`));
+    server.listen(PORT,()=>console.log(`Running on port ${PORT}`));
 })
 .catch((error)=>{
     console.error("Database connection failed ",error.message);

@@ -16,6 +16,7 @@ import Display_sell from "./assets/display_sell.jsx"
 import Display_lost from "./assets/display_lost.jsx"
 import Profile from './profile.jsx';
 import EditProfile from './EditProfile';
+import ChatBox from './Chatbox.jsx';
 function App() {
   return (
     <Router>
@@ -37,6 +38,7 @@ function App() {
           <Route path="/display_sell" element={<Display_sell />} />
           <Route path="/display_lost" element={<Display_lost/>} />
           <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/chatbox/:recipientId" element={<ChatBox/>}/>
         </Routes>
       </div>
     </Router>
