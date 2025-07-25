@@ -141,7 +141,7 @@ export const resetPassword = async (req, res) => {
   const { token, newPassword } = req.body;
   try {
     const decoded = jwt.verify(token, key);
-    const user = await User.findOne({ emailid: decoded.email, resetToken: token });
+    const user = await user.findOne({ emailid: decoded.email, resetToken: token });
 
     //means if no user or the key has expired
     if (!user || user.resetTokenExpiry < Date.now()) return res.status(400).send('Invalid or expired token');

@@ -17,6 +17,9 @@ import Display_lost from "./assets/display_lost.jsx"
 import Profile from './profile.jsx';
 import EditProfile from './EditProfile';
 import ChatBox from './Chatbox.jsx';
+import ResetPassword from './ForgotPass.jsx';
+import ForgotPassword from './ForgotPassword.jsx';
+
 function App() {
   return (
     <Router>
@@ -39,6 +42,8 @@ function App() {
           <Route path="/display_lost" element={<Display_lost/>} />
           <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/chatbox/:recipientId" element={<ChatBox/>}/>
+          <Route path="/reset" element={<ResetPassword/>}/>
+          <Route path="/forgot" element={<ForgotPassword/>}/>
         </Routes>
       </div>
     </Router>
