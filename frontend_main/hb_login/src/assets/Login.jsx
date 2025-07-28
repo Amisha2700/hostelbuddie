@@ -102,9 +102,8 @@ function Login() {
         </form>
         <p className="text">Don't have an account?</p>
         <Link to="/register" className="btn-secondary">Register</Link>
-        <div className="links">
-          <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">Forgot Password?</a>
-        </div>
+        <p className="text">Forgot Password?</p>
+        <Link to="/forgot" className="btn-secondary">Reset</Link>
       </div>
     </div>
   );
