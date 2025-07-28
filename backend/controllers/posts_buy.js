@@ -58,7 +58,7 @@ export const readFeed = async(req,res)=>{
 export const readSpec = async(req,res)=>{
     try{
         const id = req.params.postid;
-        const post = await posts.find({id:_id});
+        const post = await posts.find({_id:id});
         return res.status(200).json(post);
     }
 

@@ -3,10 +3,11 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.metrics.pairwise import cosine_similarity
 from flask_cors import CORS
-
+from dotenv import load_dotenv
 app = Flask(__name__)
 CORS(app)  # To enable CORS for all routes
 
+load_dotenv()
 
 # Preprocessing Function
 def preprocess(data):
@@ -53,7 +54,7 @@ def find_matches():
             return jsonify({"error": "Name is required"}), 400
 
         # Load and preprocess data
-        data = pd.read_csv("https://docs.google.com/spreadsheets/d/1LthSMETRap-PO-tuC5H2ycif27c7kzKnUUdwpGUCwz0/export?format=csv")
+        data = pd.read_csv("GOOGLE_SHEET_URL")
         
         # Print columns for debugging
         print("Columns in the dataset:", data.columns.tolist())
